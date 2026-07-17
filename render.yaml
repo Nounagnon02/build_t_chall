@@ -14,8 +14,8 @@ services:
     region: frankfurt
     plan: free
     rootDir: backend
-    buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    buildCommand: cd backend && pip install -r requirements.txt
+    startCommand: cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT
     healthCheckPath: /health
     healthCheckGracePeriodSeconds: 60
     autoDeploy: true
@@ -44,9 +44,9 @@ services:
       - key: DATABASE_URL
         sync: false
 
-      # --- CORS : ajouter l'URL du frontend Vercel une fois déployé ---
+      # --- CORS : frontend Vercel ---
       - key: CORS_ORIGINS
-        sync: false
+        value: "https://build-t-chall-tckt.vercel.app,http://localhost:5173,http://localhost:3000"
 
       # --- Rate limiting ---
       - key: RATE_LIMIT_PER_MINUTE
