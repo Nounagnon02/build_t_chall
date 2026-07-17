@@ -75,7 +75,7 @@ DATABASE_URL=postgresql+asyncpg://postgres.[ref]:[PASSWORD]@[HOST]:5432/postgres
 SECRET_KEY=<généré ci-dessous>
 
 # CORS (mettre l'URL du frontend une fois déployé)
-CORS_ORIGINS=https://ever-after-events.vercel.app
+CORS_ORIGINS=https://build-t-chall-tckt-kp-tech.vercel.app
 
 # Rate limiting
 RATE_LIMIT_PER_MINUTE=100

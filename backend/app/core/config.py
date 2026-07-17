@@ -34,7 +34,7 @@ class Settings(BaseSettings):
     DATABASE_URL: str = "sqlite+aiosqlite:///./ever_after_events.db"
 
     # CORS
-    CORS_ORIGINS: str = "http://localhost:5173,http://localhost:3000,https://build-t-chall-tckt.vercel.app"
+    CORS_ORIGINS: str = "http://localhost:5173,http://localhost:3000,https://build-t-chall-tckt-kp-tech.vercel.app"
 
     # Rate Limiting
     RATE_LIMIT_PER_MINUTE: int = 100
