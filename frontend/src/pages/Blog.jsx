@@ -14,13 +14,24 @@ export default function Blog() {
   const [category, setCategory] = useState('');
 
   useEffect(() => {
+    const normalizePosts = (data) => {
+      if (Array.isArray(data)) return data;
+      if (data?.items && Array.isArray(data.items)) return data.items;
+      if (data?.data && Array.isArray(data.data)) return data.data;
+      return [];
+    };
+
     const params = category ? { category } : {};
     blogAPI.list(params).then((res) => {
-      setPosts(res.data?.items || res.data || []);
-    }).catch(() => {}).finally(() => setLoading(false));
+      setPosts(normalizePosts(res.data));
+    }).catch(() => {
+      setPosts([]);
+    }).finally(() => setLoading(false));
   }, [category]);
 
   if (loading) return <LoadingScreen />;
+
+  const postsList = Array.isArray(posts) ? posts : [];
 
   return (
     <PageTransition>

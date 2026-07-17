@@ -15,18 +15,29 @@ export default function Services() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    const normalizeServices = (data) => {
+      if (Array.isArray(data)) return data;
+      if (data?.items && Array.isArray(data.items)) return data.items;
+      if (data?.data && Array.isArray(data.data)) return data.data;
+      return [];
+    };
+
     servicesAPI.list().then((res) => {
-      setServices(res.data || []);
-    }).catch(() => {}).finally(() => setLoading(false));
+      setServices(normalizeServices(res.data));
+    }).catch(() => {
+      setServices([]);
+    }).finally(() => setLoading(false));
   }, []);
 
   if (loading) return <LoadingScreen />;
 
   if (slug) {
-    const service = services.find((s) => s.slug === slug);
+    const service = Array.isArray(services) ? services.find((s) => s.slug === slug) : undefined;
     if (!service) return <NotFound />;
     return <ServiceDetail service={service} />;
   }
+
+  const servicesList = Array.isArray(services) ? services : [];
 
   return (
     <PageTransition>

@@ -129,7 +129,7 @@ Assistant virtuel "Eva" avec réponses contextuelles sur les services, prix, dis
 ```bash
 vercel --prod
 # Vercel détecte vercel.json (Vite) automatiquement
-# Ajouter VITE_API_URL = https://ever-after-events-api.onrender.com/api/v1
+# Ajouter VITE_API_URL = https://build-t-chall-1.onrender.com/api/v1
 ```
 
 **3. Backend → Render (Blueprint)**

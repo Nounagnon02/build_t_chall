@@ -133,8 +133,8 @@ Cliquer sur **Create Web Service**. Le déploiement prend ~3-5 minutes.
 ### Variables d'environnement
 
 ```
-VITE_API_URL=https://ever-after-events-api.onrender.com/api/v1
-VITE_SITE_URL=https://ever-after-events.vercel.app
+VITE_API_URL=https://build-t-chall-1.onrender.com/api/v1
+VITE_SITE_URL=https://build-t-chall-tckt-kp-tech.vercel.app
 ```
 
 ### Deploy
@@ -190,9 +190,9 @@ Se connecter avec :
 
 ### Vérifications
 
-1. **Healthcheck** : `GET https://ever-after-events-api.onrender.com/health` → `{"status": "ok"}`
-2. **API Swagger** : `GET https://ever-after-events-api.onrender.com/docs` (si DEBUG=true)
-3. **Frontend** : Ouvrir `https://ever-after-events.vercel.app` → navigation OK
+1. **Healthcheck** : `GET https://build-t-chall-1.onrender.com/health` → `{"status": "ok"}`
+2. **API Swagger** : `GET https://build-t-chall-1.onrender.com/docs` (si DEBUG=true)
+3. **Frontend** : Ouvrir `https://build-t-chall-tckt-kp-tech.vercel.app` → navigation OK
 
 ### Updating SECRET_KEY
 
@@ -208,7 +208,7 @@ Mettre à jour :
 
 ### First login au dashboard admin
 
-URL : `https://ever-after-events.vercel.app/admin/login`
+URL : `https://build-t-chall-tckt-kp-tech.vercel.app/admin/login`
 
 ```
 Email: admin@everafterevents.com
@@ -223,9 +223,9 @@ Password: Admin1234
 
 | Service | URL |
 |---------|-----|
-| Frontend | `https://ever-after-events.vercel.app` |
-| Backend API | `https://ever-after-events-api.onrender.com` |
-| Docs API | `https://ever-after-events-api.onrender.com/docs` |
+| Frontend | `https://build-t-chall-tckt-kp-tech.vercel.app` |
+| Backend API | `https://build-t-chall-1.onrender.com` |
+| Docs API | `https://build-t-chall-1.onrender.com/docs` |
 | Supabase Dashboard | `https://app.supabase.com/project/[ref]/dashboard` |
 
 ---
@@ -237,7 +237,7 @@ Password: Admin1234
 - Logs : Render → Events → voir si démarrage avec erreur DB
 
 ### CORS errors depuis le frontend
-- Ajouter l'URL du frontend à `CORS_ORIGINS` sur Render : `https://ever-after-events.vercel.app`
+- Ajouter l'URL du frontend à `CORS_ORIGINS` sur Render : `https://build-t-chall-tckt-kp-tech.vercel.app`
 
 ### "relation does not exist"
 - Le schéma n'a pas été créé : `init_db()` n'a pas tourné
