@@ -11,6 +11,12 @@ from sqlalchemy.orm import DeclarativeBase
 
 from app.core.config import settings
 
+if settings.is_production and "sqlite" in settings.DATABASE_URL:
+    raise RuntimeError(
+        "DATABASE_URL must be set to a PostgreSQL URL in production. "
+        "Set it in the Render dashboard (Environment → DATABASE_URL)."
+    )
+
 # Convention for naming constraints
 convention = {
     "ix": "ix_%(column_0_label)s",
@@ -38,6 +44,7 @@ if "sqlite" not in settings.db_connection_string:
 async_connect_args: dict = {}
 if "postgresql+asyncpg" in settings.db_connection_string:
     async_connect_args["statement_cache_size"] = 0
+    async_connect_args["ssl"] = "require"
 
 async_engine = create_async_engine(
     settings.db_connection_string,
