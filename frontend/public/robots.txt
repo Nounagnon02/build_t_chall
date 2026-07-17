@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Sitemap: https://everafterevents.com/sitemap.xml
+
+# Admin and client pages
+Disallow: /client/
+Disallow: /admin/
+Disallow: /login
+Disallow: /inscription

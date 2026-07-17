@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c ' *)",
+      "WebSearch",
+      "Bash(grep -n \"class Tool\" /home/rosegohoue/Mesohoue/Mes_projets/ever_after_events/backend/app/models/__init__.py)",
+      "Read(//home/rosegohoue/Mesohoue/Mes_projets/ever_after_events/backend/app/models/**)",
+      "Bash(npx vite *)",
+      "Bash(sed -n '920,970p' /home/rodegohoue/Mes_projets/ever_after_events/backend/seed.py)",
+      "Read(//home/rodegohoue/Mes_projets/ever_after_events/backend/**)",
+      "Bash(sqlite3 data.db \"SELECT question, substr\\(answer, 1, 80\\) FROM faqs LIMIT 5\")",
+      "Bash(python3 -m py_compile app/core/database.py app/core/config.py app/main.py alembic/env.py)",
+      "Bash(python3 -c \"import yaml,sys; yaml.safe_load\\(open\\('../render.yaml'\\)\\); print\\('OK: render.yaml YAML valide'\\)\")"
+    ]
+  }
+}

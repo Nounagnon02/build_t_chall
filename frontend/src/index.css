@@ -1,0 +1,384 @@
+/* ── Font-face: Roslindale (Display — titres) ─────────────────────── */
+@font-face {
+  font-family: 'Roslindale';
+  src: url('./assets/fonts/roslindale/Roslindale-DisplayLight.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Roslindale';
+  src: url('./assets/fonts/roslindale/Roslindale-DisplayRegular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Roslindale';
+  src: url('./assets/fonts/roslindale/Roslindale-DisplayMedium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Roslindale';
+  src: url('./assets/fonts/roslindale/Roslindale-DisplaySemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Roslindale';
+  src: url('./assets/fonts/roslindale/Roslindale-DisplayBold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Roslindale';
+  src: url('./assets/fonts/roslindale/Roslindale-DisplayBlack.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Roslindale';
+  src: url('./assets/fonts/roslindale/Roslindale-DisplayUltra.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── Font-face: Roslindale Text (sous-titres, texte élégant) ──────── */
+@font-face {
+  font-family: 'Roslindale Text';
+  src: url('./assets/fonts/roslindale/Roslindale-TextRegular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Roslindale Text';
+  src: url('./assets/fonts/roslindale/Roslindale-TextItalic.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Roslindale Text';
+  src: url('./assets/fonts/roslindale/Roslindale-TextMedium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Roslindale Text';
+  src: url('./assets/fonts/roslindale/Roslindale-TextSemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Roslindale Text';
+  src: url('./assets/fonts/roslindale/Roslindale-TextBold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── Font-face: Instrument Sans (corps de texte) ───────────────────── */
+@font-face {
+  font-family: 'Instrument Sans';
+  src: url('./assets/fonts/instrument-sans/InstrumentSans-Variable.ttf') format('truetype');
+  font-weight: 400 700;
+  font-stretch: 75% 100%;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Instrument Sans';
+  src: url('./assets/fonts/instrument-sans/InstrumentSans-Italic-Variable.ttf') format('truetype');
+  font-weight: 400 700;
+  font-stretch: 75% 100%;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ── Font-face: WindSong (script / calligraphie) ───────────────────── */
+@font-face {
+  font-family: 'WindSong';
+  src: url('./assets/fonts/WindSong-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'WindSong';
+  src: url('./assets/fonts/WindSong-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------------------------------------------ */
+/* Base                                                               */
+/* ------------------------------------------------------------------ */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ivory text-charbon font-sans antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  #root {
+    min-height: 100vh;
+  }
+
+  ::selection {
+    @apply bg-champagne/30 text-charbon;
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Components                                                         */
+/* ------------------------------------------------------------------ */
+
+@layer components {
+  .btn-primary {
+    @apply relative inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4
+           bg-champagne text-white font-medium text-sm uppercase tracking-widest
+           transition-all duration-300 ease-out
+           hover:bg-champagne-500 hover:scale-[1.02] hover:shadow-gold
+           focus:outline-none focus:ring-2 focus:ring-champagne focus:ring-offset-2
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply relative inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4
+           border border-champagne text-champagne font-medium text-sm uppercase tracking-widest
+           transition-all duration-300 ease-out
+           hover:bg-champagne/10 hover:scale-[1.02]
+           focus:outline-none focus:ring-2 focus:ring-champagne focus:ring-offset-2;
+  }
+
+  .btn-outline-light {
+    @apply relative inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4
+           border border-white/80 text-white font-medium text-sm uppercase tracking-widest
+           transition-all duration-300 ease-out
+           hover:bg-white/10 hover:scale-[1.02]
+           focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2;
+  }
+
+  .btn-ghost {
+    @apply relative inline-flex items-center justify-center px-6 py-3
+           text-champagne font-medium text-sm uppercase tracking-widest
+           transition-all duration-300 ease-out
+           hover:bg-champagne/5
+           focus:outline-none focus:ring-2 focus:ring-champagne;
+  }
+
+  .section-title {
+    @apply font-serif text-h1-sm md:text-h1 text-charbon mb-4;
+  }
+
+  .section-subtitle {
+    @apply font-elegant text-lg md:text-xl text-charbon/70 italic mb-8 md:mb-12;
+  }
+
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-14 sm:py-16 md:py-24 lg:py-32;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 ease-out
+           hover:-translate-y-2 hover:shadow-card-hover;
+  }
+
+  .input-elegant {
+    @apply w-full bg-transparent border-b-2 border-perle
+           py-3 px-1 text-charbon font-sans text-body
+           transition-all duration-300
+           focus:outline-none focus:border-champagne
+           placeholder:text-charbon/30;
+  }
+
+  .label-floating {
+    @apply absolute left-1 -top-3.5 text-xs text-charbon/50 font-medium uppercase tracking-wider
+           transition-all duration-300;
+  }
+
+  .gold-text {
+    @apply bg-gold-text bg-clip-text text-transparent;
+  }
+
+  .text-display-xl {
+    @apply font-display font-black leading-[0.9] tracking-[-0.02em];
+  }
+
+  .gold-text-gradient {
+    background: linear-gradient(135deg, #D4A843 0%, #E4BE6A 30%, #D4A843 50%, #BF9638 70%, #D4A843 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Utilities                                                         */
+/* ------------------------------------------------------------------ */
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mask-fade-bottom {
+    mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  }
+
+  /* Glassmorphism */
+  .glass {
+    @apply bg-white/70 backdrop-blur-[12px] border border-white/20 shadow-glass;
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .glass-dark {
+    @apply bg-charbon/60 backdrop-blur-[12px] border border-white/10 shadow-glass;
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .glass-gold {
+    @apply bg-gradient-to-br from-champagne/10 to-champagne/5 backdrop-blur-[12px] border border-champagne/20 shadow-glass;
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  /* Text effects */
+  .text-gradient-shimmer {
+    background: linear-gradient(135deg,
+      #D4A843 0%, #E4BE6A 25%, #D4A843 50%, #BF9638 75%, #D4A843 100%
+    );
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s linear infinite;
+  }
+
+  .text-outline-gold {
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px #D4A843;
+    text-stroke: 1px #D4A843;
+  }
+
+  .text-outline-white {
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px rgba(255,255,255,0.6);
+    text-stroke: 1px rgba(255,255,255,0.6);
+  }
+
+  /* Texture patterns */
+  .pattern-dots {
+    background-image: radial-gradient(circle, rgba(212,168,67,0.08) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .pattern-lines {
+    background-image: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 40px,
+      rgba(212,168,67,0.04) 40px,
+      rgba(212,168,67,0.04) 41px
+    );
+  }
+
+  .pattern-diagonal {
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 20px,
+      rgba(212,168,67,0.03) 20px,
+      rgba(212,168,67,0.03) 21px
+    );
+  }
+
+  /* Masonry gallery */
+  .gallery-masonry {
+    column-count: 2;
+    column-gap: 16px;
+  }
+
+  @screen md {
+    .gallery-masonry {
+      column-count: 3;
+    }
+  }
+
+  @screen lg {
+    .gallery-masonry {
+      column-count: 4;
+    }
+  }
+
+  .gallery-masonry > * {
+    break-inside: avoid;
+    margin-bottom: 16px;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Page transition overlay                                            */
+/* ------------------------------------------------------------------ */
+
+.page-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* ------------------------------------------------------------------ */
+/* Skeleton loading                                                    */
+/* ------------------------------------------------------------------ */
+
+.skeleton {
+  @apply bg-perle/50 rounded;
+  background: linear-gradient(90deg, #F0ECE8 25%, #FAF6F1 50%, #F0ECE8 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
