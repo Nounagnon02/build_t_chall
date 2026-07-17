@@ -55,8 +55,9 @@ async def lifespan(app: FastAPI):
         await init_db()
         logger.info("Database schema ready (environment: %s)", settings.ENVIRONMENT)
     except Exception as exc:  # noqa: BLE001
-        logger.exception("Database schema init failed: %s", exc)
-        raise
+        logger.error("Database schema init failed: %s", exc)
+        if settings.is_development:
+            raise
     yield
     await close_db()
 

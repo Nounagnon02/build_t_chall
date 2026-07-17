@@ -8,6 +8,7 @@ from typing import AsyncGenerator, AsyncIterator
 from sqlalchemy import MetaData, create_engine
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 from sqlalchemy.orm import DeclarativeBase
+from sqlalchemy.pool import NullPool
 
 from app.core.config import settings
 
@@ -34,23 +35,23 @@ class Base(DeclarativeBase):
 
 # --- Async engine (used by FastAPI) ---
 
-engine_kwargs = {"echo": settings.DEBUG, "pool_pre_ping": True}
-if "sqlite" not in settings.db_connection_string:
-    engine_kwargs["pool_size"] = 10
-    engine_kwargs["max_overflow"] = 20
+is_postgres = "postgresql+asyncpg" in settings.db_connection_string
 
-# asyncpg : désactiver le cache de prepared statements car Supabase (en mode
-# pooler PgBouncer / transaction) ne les supporte pas. Sans danger en direct.
-async_connect_args: dict = {}
-if "postgresql+asyncpg" in settings.db_connection_string:
-    async_connect_args["statement_cache_size"] = 0
-    async_connect_args["ssl"] = "require"
-
-async_engine = create_async_engine(
-    settings.db_connection_string,
-    connect_args=async_connect_args,
-    **engine_kwargs,
-)
+# Supabase pooler (PgBouncer transaction mode) requires NullPool — no server-side
+# prepared statements, no persistent connections held by SQLAlchemy.
+if is_postgres:
+    async_engine = create_async_engine(
+        settings.db_connection_string,
+        poolclass=NullPool,
+        connect_args={"statement_cache_size": 0, "ssl": "require"},
+        echo=settings.DEBUG,
+    )
+else:
+    async_engine = create_async_engine(
+        settings.db_connection_string,
+        echo=settings.DEBUG,
+        pool_pre_ping=True,
+    )
 
 AsyncSessionLocal = async_sessionmaker(
     async_engine,
@@ -88,15 +89,8 @@ async def get_db_context() -> AsyncIterator[AsyncSession]:
 
 # --- Sync engine (used by Alembic scripts) ---
 
-sync_engine_kwargs = {"echo": settings.DEBUG, "pool_pre_ping": True}
-if "sqlite" not in settings.db_connection_string:
-    sync_engine_kwargs["pool_size"] = 10
-    sync_engine_kwargs["max_overflow"] = 20
-
-sync_engine = create_engine(
-    settings.db_connection_string.replace("+aiosqlite", "").replace("+asyncpg", ""),
-    **sync_engine_kwargs,
-)
+_sync_url = settings.db_connection_string.replace("+aiosqlite", "").replace("+asyncpg", "")
+sync_engine = create_engine(_sync_url, echo=settings.DEBUG, pool_pre_ping=True)
 
 
 async def init_db():
