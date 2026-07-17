@@ -1,12 +1,12 @@
 import axios from 'axios';
 
 const apiBaseURL = import.meta.env.VITE_API_URL || 'https://build-t-chall-1.onrender.com/api/v1';
-if (!import.meta.env.VITE_API_URL) {
-  console.warn(
-    'VITE_API_URL is not defined in the build. Using fallback API base URL:',
-    apiBaseURL
-  );
-}
+console.info(
+  'RUN-TIME API DEBUG:',
+  'VITE_API_URL=', import.meta.env.VITE_API_URL,
+  'apiBaseURL=', apiBaseURL,
+  'MODE=', import.meta.env.MODE
+);
 
 const api = axios.create({
   baseURL: apiBaseURL,
