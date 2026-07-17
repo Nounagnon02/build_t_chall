@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { CheckSquare, Users, MessageSquare, CreditCard, FileText } from 'lucide-react';
 import { clientAPI } from '../../services/api';
 import LoadingScreen from '../../components/common/LoadingScreen';
+import { normalizeApiObjectResponse } from '../../utils/normalizeResponse';
 
 export default function ClientDashboard() {
   const [data, setData] = useState(null);
@@ -12,8 +13,8 @@ export default function ClientDashboard() {
 
   useEffect(() => {
     clientAPI.dashboard().then((res) => {
-      setData(res.data || {});
-    }).catch(() => {}).finally(() => setLoading(false));
+      setData(normalizeApiObjectResponse(res.data));
+    }).catch(() => { setData({}); }).finally(() => setLoading(false));
   }, []);
 
   if (loading) return <LoadingScreen />;

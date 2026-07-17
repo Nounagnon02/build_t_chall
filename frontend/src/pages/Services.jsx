@@ -8,6 +8,7 @@ import ServiceCard from '../components/common/ServiceCard';
 import PageTransition from '../components/common/PageTransition';
 import LoadingScreen from '../components/common/LoadingScreen';
 import NotFound from './NotFound';
+import { normalizeApiArrayResponse } from '../utils/normalizeResponse';
 
 export default function Services() {
   const { slug } = useParams();
@@ -15,15 +16,8 @@ export default function Services() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const normalizeServices = (data) => {
-      if (Array.isArray(data)) return data;
-      if (data?.items && Array.isArray(data.items)) return data.items;
-      if (data?.data && Array.isArray(data.data)) return data.data;
-      return [];
-    };
-
     servicesAPI.list().then((res) => {
-      setServices(normalizeServices(res.data));
+      setServices(normalizeApiArrayResponse(res.data));
     }).catch(() => {
       setServices([]);
     }).finally(() => setLoading(false));

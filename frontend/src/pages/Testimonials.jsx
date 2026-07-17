@@ -6,6 +6,7 @@ import { testimonialsAPI } from '../services/api';
 import PageTransition from '../components/common/PageTransition';
 import SectionTitle from '../components/common/SectionTitle';
 import LoadingScreen from '../components/common/LoadingScreen';
+import { normalizeApiArrayResponse } from '../utils/normalizeResponse';
 
 export default function Testimonials() {
   const [testimonials, setTestimonials] = useState([]);
@@ -15,8 +16,8 @@ export default function Testimonials() {
   useEffect(() => {
     const params = filter ? { style: filter } : {};
     testimonialsAPI.list(params).then((res) => {
-      setTestimonials(res.data || []);
-    }).catch(() => {}).finally(() => setLoading(false));
+      setTestimonials(normalizeApiArrayResponse(res.data));
+    }).catch(() => { setTestimonials([]); }).finally(() => setLoading(false));
   }, [filter]);
 
   if (loading) return <LoadingScreen />;

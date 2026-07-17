@@ -5,13 +5,14 @@ import { Search, User, Check, X } from 'lucide-react';
 import { toast } from 'sonner';
 import { adminAPI } from '../../services/api';
 import LoadingScreen from '../../components/common/LoadingScreen';
+import { normalizeApiArrayResponse } from '../../utils/normalizeResponse';
 
 export default function AdminClients() {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
 
-  const load = () => adminAPI.users.list({ search }).then((res) => setUsers(res.data?.items || [])).catch(() => {}).finally(() => setLoading(false));
+  const load = () => adminAPI.users.list({ search }).then((res) => setUsers(normalizeApiArrayResponse(res.data))).catch(() => { setUsers([]); }).finally(() => setLoading(false));
   useEffect(() => { load(); }, [search]);
 
   const toggleStatus = async (id) => {

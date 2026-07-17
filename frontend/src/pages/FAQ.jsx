@@ -6,6 +6,7 @@ import { faqAPI } from '../services/api';
 import PageTransition from '../components/common/PageTransition';
 import SectionTitle from '../components/common/SectionTitle';
 import LoadingScreen from '../components/common/LoadingScreen';
+import { normalizeApiArrayResponse } from '../utils/normalizeResponse';
 
 export default function FAQ() {
   const [faqs, setFaqs] = useState([]);
@@ -19,8 +20,8 @@ export default function FAQ() {
     if (search) params.search = search;
     if (category) params.category = category;
     faqAPI.list(params).then((res) => {
-      setFaqs(res.data || []);
-    }).catch(() => {}).finally(() => setLoading(false));
+      setFaqs(normalizeApiArrayResponse(res.data));
+    }).catch(() => { setFaqs([]); }).finally(() => setLoading(false));
   }, [search, category]);
 
   if (loading) return <LoadingScreen />;

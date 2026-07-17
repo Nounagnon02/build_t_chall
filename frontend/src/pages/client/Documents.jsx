@@ -5,13 +5,14 @@ import { FileText, Upload, Download, Trash2 } from 'lucide-react';
 import { toast } from 'sonner';
 import { clientAPI } from '../../services/api';
 import LoadingScreen from '../../components/common/LoadingScreen';
+import { normalizeApiArrayResponse } from '../../utils/normalizeResponse';
 
 export default function ClientDocuments() {
   const [docs, setDocs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [uploading, setUploading] = useState(false);
 
-  const load = () => clientAPI.documents.list().then((res) => setDocs(res.data || [])).catch(() => {}).finally(() => setLoading(false));
+  const load = () => clientAPI.documents.list().then((res) => setDocs(normalizeApiArrayResponse(res.data))).catch(() => { setDocs([]); }).finally(() => setLoading(false));
   useEffect(() => { load(); }, []);
 
   const upload = async (e) => {

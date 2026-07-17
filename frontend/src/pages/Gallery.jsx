@@ -8,6 +8,7 @@ import PageTransition from '../components/common/PageTransition';
 import LoadingScreen from '../components/common/LoadingScreen';
 import { GALLERY_FILTERS } from '../utils/constants';
 import { staggerContainer, staggerItem } from '../utils/animations';
+import { normalizeApiArrayResponse } from '../utils/normalizeResponse';
 
 export default function Gallery() {
   const { style } = useParams();
@@ -20,8 +21,8 @@ export default function Gallery() {
     setLoading(true);
     const params = activeFilter !== 'Tous' ? { style: activeFilter.toLowerCase() } : {};
     galleryAPI.list(params).then((res) => {
-      setPhotos(res.data?.items || res.data || []);
-    }).catch(() => {}).finally(() => setLoading(false));
+      setPhotos(normalizeApiArrayResponse(res.data));
+    }).catch(() => { setPhotos([]); }).finally(() => setLoading(false));
   }, [activeFilter]);
 
   if (loading) return <LoadingScreen />;

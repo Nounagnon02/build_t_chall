@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import { CreditCard, TrendingUp } from 'lucide-react';
 import { clientAPI } from '../../services/api';
 import LoadingScreen from '../../components/common/LoadingScreen';
+import { normalizeApiArrayResponse } from '../../utils/normalizeResponse';
 
 export default function ClientBudget() {
   const [payments, setPayments] = useState([]);
@@ -11,8 +12,8 @@ export default function ClientBudget() {
 
   useEffect(() => {
     clientAPI.payments.list().then((res) => {
-      setPayments(res.data || []);
-    }).catch(() => {}).finally(() => setLoading(false));
+      setPayments(normalizeApiArrayResponse(res.data));
+    }).catch(() => { setPayments([]); }).finally(() => setLoading(false));
   }, []);
 
   if (loading) return <LoadingScreen />;

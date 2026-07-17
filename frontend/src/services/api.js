@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:8000/api/v1',
+  baseURL: import.meta.env.VITE_API_URL || 'https://build-t-chall-1.onrender.com/api/v1',
   headers: {
     'Content-Type': 'application/json',
   },
@@ -197,6 +197,7 @@ export const adminAPI = {
   },
   analytics: {
     overview: () => api.get('/admin/analytics/overview'),
+    charts: () => api.get('/admin/analytics/charts'),
   },
   content: {
     createGalleryPhoto: (data) => api.post('/admin/content/gallery', data),

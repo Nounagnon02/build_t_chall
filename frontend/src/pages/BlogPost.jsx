@@ -7,6 +7,7 @@ import { blogAPI } from '../services/api';
 import PageTransition from '../components/common/PageTransition';
 import LoadingScreen from '../components/common/LoadingScreen';
 import NotFound from './NotFound';
+import { normalizeApiObjectResponse } from '../utils/normalizeResponse';
 
 export default function BlogPost() {
   const { slug } = useParams();
@@ -15,8 +16,8 @@ export default function BlogPost() {
 
   useEffect(() => {
     blogAPI.get(slug).then((res) => {
-      setPost(res.data || null);
-    }).catch(() => {}).finally(() => setLoading(false));
+      setPost(normalizeApiObjectResponse(res.data));
+    }).catch(() => { setPost(null); }).finally(() => setLoading(false));
   }, [slug]);
 
   if (loading) return <LoadingScreen />;

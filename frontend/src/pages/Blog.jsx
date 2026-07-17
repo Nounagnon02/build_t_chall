@@ -7,6 +7,7 @@ import { blogAPI } from '../services/api';
 import PageTransition from '../components/common/PageTransition';
 import SectionTitle from '../components/common/SectionTitle';
 import LoadingScreen from '../components/common/LoadingScreen';
+import { normalizeApiArrayResponse } from '../utils/normalizeResponse';
 
 export default function Blog() {
   const [posts, setPosts] = useState([]);
@@ -14,16 +15,9 @@ export default function Blog() {
   const [category, setCategory] = useState('');
 
   useEffect(() => {
-    const normalizePosts = (data) => {
-      if (Array.isArray(data)) return data;
-      if (data?.items && Array.isArray(data.items)) return data.items;
-      if (data?.data && Array.isArray(data.data)) return data.data;
-      return [];
-    };
-
     const params = category ? { category } : {};
     blogAPI.list(params).then((res) => {
-      setPosts(normalizePosts(res.data));
+      setPosts(normalizeApiArrayResponse(res.data));
     }).catch(() => {
       setPosts([]);
     }).finally(() => setLoading(false));

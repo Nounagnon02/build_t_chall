@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { galleryAPI } from '../../services/api';
 import LoadingScreen from '../../components/common/LoadingScreen';
+import { normalizeApiArrayResponse } from '../../utils/normalizeResponse';
 
 export default function ClientAlbum() {
   const [photos, setPhotos] = useState([]);
@@ -11,8 +12,8 @@ export default function ClientAlbum() {
 
   useEffect(() => {
     galleryAPI.list({ featured: true }).then((res) => {
-      setPhotos(res.data?.items || []);
-    }).catch(() => {}).finally(() => setLoading(false));
+      setPhotos(normalizeApiArrayResponse(res.data));
+    }).catch(() => { setPhotos([]); }).finally(() => setLoading(false));
   }, []);
 
   if (loading) return <LoadingScreen />;

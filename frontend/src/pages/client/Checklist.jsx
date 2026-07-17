@@ -5,13 +5,14 @@ import { CheckCircle2, Circle, Plus, Trash2 } from 'lucide-react';
 import { toast } from 'sonner';
 import { clientAPI } from '../../services/api';
 import LoadingScreen from '../../components/common/LoadingScreen';
+import { normalizeApiArrayResponse } from '../../utils/normalizeResponse';
 
 export default function ClientChecklist() {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [newTitle, setNewTitle] = useState('');
 
-  const load = () => clientAPI.checklist.list().then((res) => setItems(res.data || [])).catch(() => {}).finally(() => setLoading(false));
+  const load = () => clientAPI.checklist.list().then((res) => setItems(normalizeApiArrayResponse(res.data))).catch(() => { setItems([]); }).finally(() => setLoading(false));
   useEffect(() => { load(); }, []);
 
   const add = async () => {

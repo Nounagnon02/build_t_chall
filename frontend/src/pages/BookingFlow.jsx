@@ -286,8 +286,8 @@ function BookingStep({ data, onUpdate, onSubmit }) {
   useEffect(() => {
     setLoading(true);
     rdvAPI.disponibilites().then((res) => {
-      setSlots(res.data || []);
-    }).catch(() => {}).finally(() => setLoading(false));
+      setSlots(normalizeApiArrayResponse(res.data));
+    }).catch(() => { setSlots([]); }).finally(() => setLoading(false));
   }, []);
 
   const update = (k, v) => {

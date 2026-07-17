@@ -12,7 +12,7 @@ export default function ClientGuests() {
   const [showForm, setShowForm] = useState(false);
   const [form, setForm] = useState({ first_name: '', last_name: '', email: '', group_name: '' });
 
-  const load = () => clientAPI.guests.list().then((res) => setGuests(res.data || [])).catch(() => {}).finally(() => setLoading(false));
+  const load = () => clientAPI.guests.list().then((res) => setGuests(normalizeApiArrayResponse(res.data))).catch(() => { setGuests([]); }).finally(() => setLoading(false));
   useEffect(() => { load(); }, []);
 
   const add = async (e) => {

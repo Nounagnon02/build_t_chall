@@ -5,6 +5,7 @@ import { ClipboardList, Mail, Phone, MessageSquare, Calendar, CheckCircle, XCirc
 import { adminAPI } from '../../services/api';
 import LoadingScreen from '../../components/common/LoadingScreen';
 import { toast } from 'sonner';
+import { normalizeApiArrayResponse } from '../../utils/normalizeResponse';
 
 const STATUSES = [
   { value: 'new', label: 'Nouveau', color: 'bg-champagne/20 text-champagne' },
@@ -21,8 +22,8 @@ export default function AdminLeads() {
   const fetchLeads = () => {
     setLoading(true);
     adminAPI.projectLeads.list().then((res) => {
-      setLeads(res.data || []);
-    }).catch(() => {}).finally(() => setLoading(false));
+      setLeads(normalizeApiArrayResponse(res.data));
+    }).catch(() => { setLeads([]); }).finally(() => setLoading(false));
   };
 
   useEffect(() => { fetchLeads(); }, []);

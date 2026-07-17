@@ -15,7 +15,7 @@ export default function ClientMessages() {
   const [sending, setSending] = useState(false);
   const bottomRef = useRef(null);
 
-  const load = () => clientAPI.messages.list().then((res) => setMessages(res.data || [])).catch(() => {}).finally(() => setLoading(false));
+  const load = () => clientAPI.messages.list().then((res) => setMessages(normalizeApiArrayResponse(res.data))).catch(() => { setMessages([]); }).finally(() => setLoading(false));
   useEffect(() => { load(); }, []);
 
   useEffect(() => { bottomRef.current?.scrollIntoView({ behavior: 'smooth' }); }, [messages]);

@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import { BarChart3, Users, TrendingUp, Calendar, Eye } from 'lucide-react';
 import { adminAPI } from '../../services/api';
 import LoadingScreen from '../../components/common/LoadingScreen';
+import { normalizeApiObjectResponse } from '../../utils/normalizeResponse';
 
 export default function AdminAnalytics() {
   const [analytics, setAnalytics] = useState(null);
@@ -11,8 +12,8 @@ export default function AdminAnalytics() {
 
   useEffect(() => {
     adminAPI.analytics.overview().then((res) => {
-      setAnalytics(res.data || {});
-    }).catch(() => {}).finally(() => setLoading(false));
+      setAnalytics(normalizeApiObjectResponse(res.data));
+    }).catch(() => { setAnalytics({}); }).finally(() => setLoading(false));
   }, []);
 
   if (loading) return <LoadingScreen />;

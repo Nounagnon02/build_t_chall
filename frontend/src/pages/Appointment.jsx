@@ -6,6 +6,7 @@ import { toast } from 'sonner';
 import PageTransition from '../components/common/PageTransition';
 import SectionTitle from '../components/common/SectionTitle';
 import { rdvAPI } from '../services/api';
+import { normalizeApiArrayResponse } from '../utils/normalizeResponse';
 
 export default function Appointment() {
   const [step, setStep] = useState(1);
@@ -19,8 +20,8 @@ export default function Appointment() {
     if (step === 2) {
       setLoading(true);
       rdvAPI.disponibilites().then((res) => {
-        setSlots(res.data || []);
-      }).catch(() => {}).finally(() => setLoading(false));
+        setSlots(normalizeApiArrayResponse(res.data));
+      }).catch(() => { setSlots([]); }).finally(() => setLoading(false));
     }
   }, [step]);
 
