@@ -17,9 +17,10 @@ export default function Login() {
     e.preventDefault();
     setLoading(true);
     try {
-      await login(form.email, form.password);
+      const authData = await login(form.email, form.password);
       toast.success('Connexion réussie !');
-      navigate('/client');
+      const destination = authData.user?.role === 'admin' ? '/admin' : '/client';
+      navigate(destination);
     } catch (err) {
       toast.error(err?.response?.data?.error || 'Email ou mot de passe incorrect.');
     } finally {

@@ -11,15 +11,17 @@ export function AuthProvider({ children }) {
     const token = localStorage.getItem('access_token');
     if (!token) {
       setIsLoading(false);
-      return;
+      return null;
     }
     try {
       const response = await authAPI.me();
       setUser(response.data);
+      return response.data;
     } catch {
       localStorage.removeItem('access_token');
       localStorage.removeItem('refresh_token');
       setUser(null);
+      return null;
     } finally {
       setIsLoading(false);
     }
@@ -34,8 +36,8 @@ export function AuthProvider({ children }) {
     const { access_token, refresh_token } = response.data;
     localStorage.setItem('access_token', access_token);
     localStorage.setItem('refresh_token', refresh_token);
-    await loadUser();
-    return response.data;
+    const userData = await loadUser();
+    return { ...response.data, user: userData };
   };
 
   const register = async (data) => {
