@@ -12,7 +12,7 @@ const testimonials = [
     venue: 'Château de Vaux-le-Vicomte',
     rating: 5,
     content: 'Ever After Events a transformé notre mariage en un conte de fées. Chaque détail était parfait, chaque moment magique. Claire et son équipe ont été extraordinaires du début à la fin.',
-    image: 'https://images.unsplash.com/photo-1583939423570-9b7f2b0c2a0f?w=100&q=80',
+    image: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=100&q=80',
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ const testimonials = [
     venue: 'Domaine de la Reine',
     rating: 5,
     content: 'Notre mariage franco-marocain était un défi logistique. L\'équipe a su mêler nos deux cultures avec une élégance et un professionnalisme incroyables. Un grand merci !',
-    image: 'https://images.unsplash.com/photo-1589156280159-27698b4d9f4e?w=100&q=80',
+    image: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=100&q=80',
   },
   {
     id: 3,

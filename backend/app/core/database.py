@@ -37,13 +37,12 @@ class Base(DeclarativeBase):
 
 is_postgres = "postgresql+asyncpg" in settings.db_connection_string
 
-# Supabase pooler (PgBouncer transaction mode) requires NullPool — no server-side
-# prepared statements, no persistent connections held by SQLAlchemy.
+# Supabase pooler (PgBouncer transaction mode): NullPool + no prepared statements.
 if is_postgres:
     async_engine = create_async_engine(
         settings.db_connection_string,
         poolclass=NullPool,
-        connect_args={"statement_cache_size": 0, "ssl": "require"},
+        connect_args={"statement_cache_size": 0, "prepared_statement_cache_size": 0, "ssl": "require"},
         echo=settings.DEBUG,
     )
 else:
@@ -87,16 +86,37 @@ async def get_db_context() -> AsyncIterator[AsyncSession]:
             await session.close()
 
 
-# --- Sync engine (used by Alembic scripts) ---
+# --- Sync engine (used by Alembic only — created lazily to avoid PgBouncer issues) ---
 
-_sync_url = settings.db_connection_string.replace("+aiosqlite", "").replace("+asyncpg", "")
-sync_engine = create_engine(_sync_url, echo=settings.DEBUG, pool_pre_ping=True)
+def get_sync_engine():
+    """Create a sync engine on demand (Alembic use only)."""
+    _sync_url = settings.db_connection_string.replace("+aiosqlite", "").replace("+asyncpg", "")
+    return create_engine(_sync_url, echo=settings.DEBUG, pool_pre_ping=True)
 
 
 async def init_db():
-    """Create all tables (useful for development without Alembic)."""
-    async with async_engine.begin() as conn:
-        await conn.run_sync(Base.metadata.create_all)
+    """Create all tables via raw asyncpg connection (bypasses PgBouncer prepared stmt issue)."""
+    if is_postgres:
+        import asyncpg
+        url = settings.db_connection_string.replace("postgresql+asyncpg://", "postgresql://")
+        conn = await asyncpg.connect(url, statement_cache_size=0, ssl="require")
+        try:
+            # Import all models to populate metadata
+            import app.models  # noqa: F401
+            # Generate DDL and execute each statement individually
+            from sqlalchemy.schema import CreateTable
+            from sqlalchemy import inspect as sa_inspect
+            for table in Base.metadata.sorted_tables:
+                ddl = str(CreateTable(table).compile(dialect=async_engine.dialect))
+                try:
+                    await conn.execute(ddl)
+                except asyncpg.exceptions.DuplicateTableError:
+                    pass
+        finally:
+            await conn.close()
+    else:
+        async with async_engine.begin() as conn:
+            await conn.run_sync(Base.metadata.create_all)
 
 
 async def close_db():
