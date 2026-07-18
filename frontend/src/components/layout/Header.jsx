@@ -138,7 +138,7 @@ export default function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-white border-t border-perle overflow-hidden"
+            className="lg:hidden max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain bg-white border-t border-perle sm:max-h-[calc(100dvh-5rem)]"
           >
             <div className="section-container py-5 sm:py-6 space-y-3 sm:space-y-4">
               {NAV_LINKS.map((link) =>

@@ -8,14 +8,14 @@ import { staggerContainer, staggerItem } from '../../../utils/animations';
 import { GALLERY_FILTERS } from '../../../utils/constants';
 
 const galleryPhotos = [
-  { id: '1', title: 'Château de Vaux', style: 'romantique', src: '/images/photo-1519741497674-611481863552.jpg', span: 'row-span-2' },
-  { id: '2', title: 'Domaine Provençal', style: 'boheme', src: '/images/photo-1511795409834-ef04bbd61622.jpg', span: '' },
-  { id: '3', title: 'Réception Luxe', style: 'luxe', src: '/images/photo-1505236858219-8359eb29e329.jpg', span: '' },
-  { id: '4', title: 'Mariage Bohème', style: 'boheme', src: '/images/photo-1464694555480-f0d5bb2b7f2b.jpg', span: '' },
-  { id: '5', title: 'Élégance Moderne', style: 'moderne', src: '/images/photo-1501281668745-f7f57925c3b4.jpg', span: 'row-span-2' },
-  { id: '6', title: 'Cérémonie Champêtre', style: 'champetre', src: '/images/photo-1519225421980-715cb0215aed.jpg', span: '' },
-  { id: '7', title: 'Mariage Oriental', style: 'oriental', src: '/images/photo-1506574733394-f31867fcc6c9.jpg', span: '' },
-  { id: '8', title: 'Luxueuse Soirée', style: 'luxe', src: '/images/photo-1519167758481-83f550bb49b3.jpg', span: '' },
+  { id: '1', title: 'Château de Vaux', style: 'romantique', src: '/images/photo-1519741497674-611481863552.webp', span: 'row-span-2' },
+  { id: '2', title: 'Domaine Provençal', style: 'boheme', src: '/images/photo-1511795409834-ef04bbd61622.webp', span: '' },
+  { id: '3', title: 'Réception Luxe', style: 'luxe', src: '/images/photo-1505236858219-8359eb29e329.webp', span: '' },
+  { id: '4', title: 'Mariage Bohème', style: 'boheme', src: '/images/photo-1602009786436-96b827675d32.webp', span: '' },
+  { id: '5', title: 'Élégance Moderne', style: 'moderne', src: '/images/photo-1501281668745-f7f57925c3b4.webp', span: 'row-span-2' },
+  { id: '6', title: 'Cérémonie Champêtre', style: 'champetre', src: '/images/photo-1519225421980-715cb0215aed.webp', span: '' },
+  { id: '7', title: 'Mariage Oriental', style: 'oriental', src: '/images/photo-1616805765352-beedbad46b2a.webp', span: '' },
+  { id: '8', title: 'Luxueuse Soirée', style: 'luxe', src: '/images/photo-1519167758481-83f550bb49b3.webp', span: '' },
 ];
 
 export default function GallerySection() {
@@ -91,8 +91,8 @@ export default function GallerySection() {
                   className="w-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 {/* Hover overlay */}
-                <div className="absolute inset-0 bg-charbon/0 group-hover:bg-charbon/50 transition-all duration-300 flex items-center justify-center">
-                  <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
+                <div className="absolute inset-0 flex items-end justify-start bg-gradient-to-t from-charbon/70 via-transparent to-transparent p-4 transition-all duration-300 sm:items-center sm:justify-center sm:bg-charbon/0 sm:p-0 sm:group-hover:bg-charbon/50">
+                  <div className="transition-all duration-300 sm:translate-y-4 sm:opacity-0 sm:group-hover:translate-y-0 sm:group-hover:opacity-100">
                     <ZoomIn className="text-white w-8 h-8" />
                     <p className="text-white text-xs mt-2 uppercase tracking-wider">{photo.title}</p>
                   </div>

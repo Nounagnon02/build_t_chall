@@ -11,7 +11,7 @@ const team = [
     role: 'Fondatrice & Directrice',
     specialty: 'Vision créative & Coordination',
     quote: 'Chaque mariage est une histoire unique qui mérite d\'être racontée avec passion.',
-    image: '/images/photo-1563132337-f159f484226c.jpg',
+    image: '/images/photo-1563132337-f159f484226c.webp',
     social: {
       linkedin: '#',
       instagram: '#',
@@ -22,7 +22,7 @@ const team = [
     role: 'Wedding Planner Senior',
     specialty: 'Organisation & Logistique',
     quote: 'Mon plus grand bonheur ? Voir le sourire des mariés le jour J.',
-    image: '/images/photo-1616805765352-beedbad46b2a.jpg',
+    image: '/images/photo-1616805765352-beedbad46b2a.webp',
     social: {
       linkedin: '#',
     },
@@ -32,7 +32,7 @@ const team = [
     role: 'Directrice Artistique',
     specialty: 'Décoration & Ambiance',
     quote: 'La beauté est dans les détails. Chaque fleur, chaque lumière compte.',
-    image: '/images/photo-1602009786436-96b827675d32.jpg',
+    image: '/images/photo-1602009786436-96b827675d32.webp',
     social: {
       instagram: '#',
     },
@@ -42,7 +42,7 @@ const team = [
     role: 'Chef de Projet Europe',
     specialty: 'Relation clients & Prestataires internationaux',
     quote: 'Un mariage réussi est un mariage où tout semble naturel... grâce à des mois de préparation.',
-    image: '/images/photo-1438761681033-6461ffad8d80.jpg',
+    image: '/images/photo-1438761681033-6461ffad8d80.webp',
     social: {
       linkedin: '#',
     },

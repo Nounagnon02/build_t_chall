@@ -34,7 +34,7 @@ export default function AboutSection() {
           <div className="lg:col-span-7 relative group">
             <div className="aspect-[4/5] rounded-sm overflow-hidden relative shadow-card">
               <img
-                src="/images/photo-1519225421980-715cb0215aed.jpg"
+                src="/images/photo-1519225421980-715cb0215aed.webp"
                 alt="Décoration élégante d'un mariage premium"
                 className="w-full h-full object-cover"
                 loading="lazy"

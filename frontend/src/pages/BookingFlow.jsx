@@ -89,7 +89,7 @@ function QuizStep({ data, onUpdate, onSkip }) {
       <AnimatePresence mode="wait">
         <motion.div key={step} initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -30 }} className="text-center">
           <h3 className="font-serif text-xl text-charbon mb-6">{q.question}</h3>
-          <div className="grid grid-cols-2 gap-3 max-w-xl mx-auto">
+          <div className="grid grid-cols-1 min-[380px]:grid-cols-2 gap-3 max-w-xl mx-auto">
             {q.options.map((opt) => (
               <motion.button key={opt.value} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.97 }}
                 onClick={() => select(opt.value)}
@@ -133,7 +133,7 @@ function MoodboardStep({ data, onUpdate, onSkip }) {
 
   return (
     <div>
-      <div className="flex gap-3 items-end mb-6">
+      <div className="flex flex-col gap-3 items-stretch mb-6 sm:flex-row sm:items-end">
         <div className="flex-1">
           <label className="block text-xs text-charbon/40 mb-1">URL de l'image</label>
           <input value={url} onChange={(e) => setUrl(e.target.value)} placeholder="https://..." className="input-elegant w-full text-sm" />
@@ -151,12 +151,12 @@ function MoodboardStep({ data, onUpdate, onSkip }) {
           <p className="text-sm text-charbon/40">Ajoutez des images d'inspiration</p>
         </div>
       ) : (
-        <div className="grid grid-cols-3 md:grid-cols-4 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
           {images.map((img) => (
             <div key={img.id} className="relative group aspect-square">
               <img src={img.url} alt={img.caption} className="w-full h-full object-cover rounded-sm" />
               <button onClick={() => removeImage(img.id)}
-                className="absolute top-1 right-1 bg-charbon/60 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+                aria-label="Supprimer l’image" className="absolute top-1 right-1 bg-charbon/70 text-white p-2 rounded-full opacity-100 sm:p-1 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
                 <Trash2 size={12} />
               </button>
               {img.caption && <p className="text-xs text-charbon/50 mt-1 truncate">{img.caption}</p>}
@@ -190,7 +190,7 @@ function ConfigStep({ data, onUpdate, onSkip }) {
       {/* Style */}
       <div>
         <h4 className="font-serif text-lg text-charbon mb-3">Style de mariage</h4>
-        <div className="grid grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 min-[380px]:grid-cols-2 sm:grid-cols-3 gap-3">
           {WEDDING_STYLES.map((s) => (
             <button key={s.value} onClick={() => update('style', s.value)}
               className={`p-3 rounded-sm border text-center transition-all text-sm ${
@@ -217,7 +217,7 @@ function ConfigStep({ data, onUpdate, onSkip }) {
       {/* Ambiance */}
       <div>
         <h4 className="font-serif text-lg text-charbon mb-3">Ambiance</h4>
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 min-[380px]:grid-cols-2 gap-3">
           {[{ v: 'intime', label: 'Intime & Cosy' }, { v: 'grandiose', label: 'Grandiose' }, { v: 'detendu', label: 'Décontracté' }, { v: 'religieux', label: 'Solennel' }].map((a) => (
             <button key={a.v} onClick={() => update('ambiance', a.v)}
               className={`p-3 rounded-sm border text-center transition-all text-sm ${
@@ -245,17 +245,17 @@ function BudgetStep({ data, onUpdate, onSkip }) {
     <div className="space-y-6">
       <div className="bg-white p-5 rounded-sm border border-perle">
         <label className="block text-xs text-charbon/50 mb-2">Budget total estimé</label>
-        <div className="flex items-center gap-4">
+        <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:gap-4">
           <input type="range" min={500000} max={50000000} step={500000} value={budget.total}
             onChange={(e) => onUpdate({ budget: { ...budget, total: Number(e.target.value) } })}
             className="flex-1 accent-champagne" />
-          <span className="font-serif text-xl text-champagne min-w-[140px] text-right whitespace-nowrap">
+          <span className="font-serif text-lg text-champagne text-left whitespace-nowrap sm:min-w-[140px] sm:text-xl sm:text-right">
             {budget.total.toLocaleString('fr-FR')} FCFA
           </span>
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 min-[380px]:grid-cols-2 gap-4">
         <div className="bg-white p-4 rounded-sm border border-perle">
           <label className="block text-xs text-charbon/50 mb-1">Invités</label>
           <input type="number" min={10} max={2000} step={10} value={budget.guests}
@@ -306,7 +306,7 @@ function BookingStep({ data, onUpdate, onSubmit }) {
 
   return (
     <div className="space-y-6">
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <label className="block text-xs text-charbon/50 mb-1">Prénom *</label>
           <input value={booking.first_name} onChange={(e) => update('first_name', e.target.value)}
@@ -350,7 +350,7 @@ function BookingStep({ data, onUpdate, onSubmit }) {
         ) : slots.length === 0 ? (
           <p className="text-sm text-charbon/40 text-center py-4">Aucun créneau disponible pour le moment.</p>
         ) : (
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+          <div className="grid grid-cols-1 min-[380px]:grid-cols-2 md:grid-cols-3 gap-2">
             {slots.map((slot) => (
               <button key={slot.id} onClick={() => setSelectedSlot(slot)}
                 className={`p-3 rounded-sm border text-center transition-all text-sm ${
@@ -491,7 +491,7 @@ export default function BookingFlow() {
           </div>
 
           {/* Step Content */}
-          <div className="bg-white p-6 md:p-8 rounded-sm shadow-card min-h-[300px]">
+          <div className="bg-white p-4 sm:p-6 md:p-8 rounded-sm shadow-card min-h-[300px]">
             {step === 0 && <QuizStep data={flowData} onUpdate={updateFlowData} onSkip={skip} />}
             {step === 1 && <MoodboardStep data={flowData} onUpdate={updateFlowData} onSkip={skip} />}
             {step === 2 && <ConfigStep data={flowData} onUpdate={updateFlowData} onSkip={skip} />}

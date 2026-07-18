@@ -47,7 +47,7 @@ export default function Moodboard() {
         <div className="section-container max-w-6xl">
           <SectionTitle title="Moodboard" subtitle="Créez votre tableau d'inspiration pour votre mariage." />
 
-          <div className="bg-white p-6 rounded-sm shadow-card mb-8">
+          <div className="bg-white p-4 sm:p-6 rounded-sm shadow-card mb-8">
             <div className="flex flex-wrap gap-4 items-end">
               <div className="flex-1 min-w-[200px]">
                 <label className="block text-xs text-charbon/50 mb-1">URL de l'image</label>
@@ -57,7 +57,7 @@ export default function Moodboard() {
                 <label className="block text-xs text-charbon/50 mb-1">Légende</label>
                 <input value={caption} onChange={(e) => setCaption(e.target.value)} placeholder="Optionnel" className="input-elegant w-full" />
               </div>
-              <button onClick={addImage} className="btn-primary flex items-center gap-2"><Plus size={16} /> Ajouter</button>
+              <button onClick={addImage} className="btn-primary w-full sm:w-auto flex items-center gap-2"><Plus size={16} /> Ajouter</button>
             </div>
           </div>
 
@@ -81,7 +81,7 @@ export default function Moodboard() {
                     >
                       <img src={img.url} alt={img.caption} className="w-full rounded-sm" />
                       <div className="absolute inset-0 bg-charbon/0 group-hover:bg-charbon/40 transition-colors rounded-sm flex items-center justify-center gap-3">
-                        <button onClick={() => removeImage(img.id)} className="text-white opacity-0 group-hover:opacity-100 transition-opacity p-2 hover:bg-white/20 rounded-full">
+                        <button onClick={() => removeImage(img.id)} aria-label="Supprimer l’image" className="absolute right-2 top-2 rounded-full bg-charbon/70 p-2 text-white opacity-100 transition-opacity sm:static sm:bg-transparent sm:opacity-0 sm:group-hover:opacity-100">
                           <Trash2 size={18} />
                         </button>
                       </div>

@@ -29,7 +29,7 @@ export default function ClientBudget() {
           <h1 className="font-serif text-2xl text-charbon mb-2">Budget</h1>
           <p className="text-sm text-charbon/50 mb-8">Suivez vos dépenses et paiements.</p>
 
-          <div className="grid grid-cols-2 gap-4 mb-8">
+          <div className="grid grid-cols-1 min-[380px]:grid-cols-2 gap-4 mb-8">
             <div className="bg-white p-6 rounded-sm shadow-card">
               <CreditCard size={20} className="text-sauge mb-2" />
               <p className="font-serif text-2xl text-charbon">{totalPaid.toLocaleString('fr-FR')}€</p>

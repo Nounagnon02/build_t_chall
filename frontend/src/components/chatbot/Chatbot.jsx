@@ -78,7 +78,7 @@ export default function Chatbot() {
     <>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-champagne text-white shadow-gold hover:shadow-lg hover:scale-105 transition-all flex items-center justify-center"
+        className="fixed bottom-[max(1rem,env(safe-area-inset-bottom))] right-4 z-50 w-14 h-14 rounded-full bg-champagne text-white shadow-gold hover:shadow-lg hover:scale-105 transition-all flex items-center justify-center sm:bottom-6 sm:right-6"
         aria-label="Ouvrir le chat"
       >
         <AnimatePresence mode="wait">
@@ -95,8 +95,7 @@ export default function Chatbot() {
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            className="fixed bottom-24 right-6 z-50 w-[360px] max-w-[calc(100vw-2rem)] bg-white rounded-sm shadow-card-hover overflow-hidden flex flex-col"
-            style={{ maxHeight: '80vh' }}
+            className="fixed inset-x-3 bottom-[calc(5.25rem+env(safe-area-inset-bottom))] z-50 flex max-h-[min(72dvh,620px)] flex-col overflow-hidden rounded-sm bg-white shadow-card-hover sm:inset-x-auto sm:bottom-24 sm:right-6 sm:w-[360px] sm:max-w-[calc(100vw-2rem)]"
           >
             {/* Header */}
             <div className="bg-charbon p-4 text-white flex items-center gap-3 shrink-0">

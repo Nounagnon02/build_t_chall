@@ -7,39 +7,39 @@ const HERO_IMAGE = '/images/editorial/hero-wedding-coast.webp';
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[720px] h-[100svh] flex items-end overflow-hidden bg-charbon pt-16 sm:pt-20">
+    <section className="relative min-h-[620px] h-[100svh] max-h-[900px] flex items-end overflow-hidden bg-charbon pt-16 sm:min-h-[700px] sm:pt-20">
       <img
         src={HERO_IMAGE}
         alt="Cérémonie de mariage élégante face à l’océan"
         fetchPriority="high"
-        className="absolute inset-0 h-full w-full object-cover object-[68%_center] md:object-center"
+        className="absolute inset-0 h-full w-full object-cover object-[71%_center] sm:object-[68%_center] md:object-center"
       />
       <div className="absolute inset-0 bg-gradient-to-r from-charbon/85 via-charbon/30 to-transparent" />
       <div className="absolute inset-0 bg-gradient-to-t from-charbon/70 via-transparent to-charbon/10" />
 
-      <div className="section-container relative z-10 w-full pb-20 sm:pb-24 md:pb-28">
+      <div className="section-container relative z-10 w-full pb-10 min-[380px]:pb-14 sm:pb-24 md:pb-28">
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           animate="visible"
           className="max-w-3xl text-left"
         >
-          <motion.p variants={staggerItem} className="mb-5 text-[11px] font-medium uppercase tracking-[0.34em] text-white/80">
+          <motion.p variants={staggerItem} className="mb-4 text-[9px] font-medium uppercase tracking-[0.24em] text-white/80 sm:mb-5 sm:text-[11px] sm:tracking-[0.34em]">
             Cotonou · Afrique de l’Ouest · Destination weddings
           </motion.p>
-          <motion.h1 variants={staggerItem} className="font-display text-[clamp(3.15rem,7vw,7.5rem)] font-medium leading-[0.88] tracking-[-0.035em] text-white">
+          <motion.h1 variants={staggerItem} className="font-display text-[clamp(2.65rem,13vw,7.5rem)] font-medium leading-[0.9] tracking-[-0.035em] text-white">
             Imaginez.
             <span className="block text-champagne-300">Nous orchestrons</span>
             <span className="block">l’exception.</span>
           </motion.h1>
-          <motion.p variants={staggerItem} className="mt-6 max-w-xl font-elegant text-lg leading-relaxed text-white/85 sm:text-xl">
+          <motion.p variants={staggerItem} className="mt-4 max-w-xl font-elegant text-base leading-relaxed text-white/85 sm:mt-6 sm:text-xl">
             Des célébrations profondément personnelles, pensées du premier frisson au dernier souvenir.
           </motion.p>
-          <motion.div variants={staggerItem} className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Button href="/rendez-vous" variant="primary" className="min-w-[220px]">
+          <motion.div variants={staggerItem} className="mt-6 flex flex-col items-start gap-2.5 sm:mt-8 sm:flex-row sm:gap-3">
+            <Button href="/rendez-vous" variant="primary" className="w-full min-w-0 sm:w-auto sm:min-w-[220px]">
               <span className="flex items-center gap-2">Imaginer mon mariage <ArrowRight size={16} /></span>
             </Button>
-            <Button href="#experiences" variant="light" className="min-w-[220px]">Découvrir nos expériences</Button>
+            <Button href="#experiences" variant="light" className="w-full min-w-0 sm:w-auto sm:min-w-[220px]">Découvrir nos expériences</Button>
           </motion.div>
         </motion.div>
       </div>

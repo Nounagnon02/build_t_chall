@@ -46,7 +46,7 @@ export default function ClientDashboard() {
             )}
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+          <div className="grid grid-cols-1 min-[380px]:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
             {cards.map((card) => (
               <Link key={card.label} to={card.link}>
                 <motion.div whileHover={{ y: -2 }} className="bg-white p-6 rounded-sm shadow-card">

@@ -33,7 +33,7 @@ export default function AdminAnalytics() {
           <h1 className="font-serif text-2xl text-charbon mb-2">Statistiques</h1>
           <p className="text-sm text-charbon/50 mb-8">Indicateurs clés de la plateforme.</p>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+          <div className="grid grid-cols-1 min-[380px]:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
             {metrics.map((m) => (
               <motion.div key={m.label} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
                 className="bg-white p-6 rounded-sm shadow-card"

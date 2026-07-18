@@ -82,7 +82,7 @@ export default function AdminDashboard() {
           </div>
 
           {/* KPI Cards */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+          <div className="grid grid-cols-1 min-[380px]:grid-cols-2 md:grid-cols-4 gap-4 mb-8">
             {CARD_CONFIGS.map((cfg, i) => {
               const value = analytics?.[cfg.key] ?? 0;
               const trendVal = cfg.trend ? (analytics?.[cfg.trend] ?? 0) : null;

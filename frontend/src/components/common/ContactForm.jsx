@@ -137,7 +137,7 @@ export default function ContactForm({ variant = 'flat', step = 1, onStepChange }
 
   if (variant === 'wizard') {
     return (
-      <form onSubmit={handleSubmit} className="bg-white p-8 md:p-12 rounded-sm shadow-card">
+      <form onSubmit={handleSubmit} className="bg-white p-5 sm:p-8 md:p-12 rounded-sm shadow-card">
         <div className="flex gap-2 mb-8">
           {[1, 2, 3, 4].map((s) => (
             <div key={s}
@@ -148,7 +148,7 @@ export default function ContactForm({ variant = 'flat', step = 1, onStepChange }
 
         {renderStep()}
 
-        <div className="flex justify-between mt-8 pt-6 border-t border-perle">
+        <div className="flex items-center justify-between gap-3 mt-8 pt-6 border-t border-perle">
           {step > 1 ? (
             <button type="button" onClick={() => onStepChange(step - 1)}
               className="text-sm text-charbon/50 hover:text-charbon transition-colors">
@@ -174,7 +174,7 @@ export default function ContactForm({ variant = 'flat', step = 1, onStepChange }
   /* ---- Flat mode ---- */
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white p-8 rounded-sm shadow-card space-y-5">
+    <form onSubmit={handleSubmit} className="bg-white p-5 sm:p-8 rounded-sm shadow-card space-y-5">
       <input className="input-elegant w-full" placeholder="Prenom *" value={form.first_name}
         onChange={(e) => update('first_name', e.target.value)} required />
       <input className="input-elegant w-full" type="email" placeholder="Email *" value={form.email}

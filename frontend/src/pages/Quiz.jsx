@@ -68,7 +68,7 @@ export default function Quiz() {
             <div className="flex justify-center gap-3 mb-8">
               {result.palette.map((c, i) => <div key={i} className="w-12 h-12 rounded-full border-2 border-white shadow" style={{ backgroundColor: c }} />)}
             </div>
-            <div className="flex gap-4 justify-center">
+            <div className="flex flex-col gap-3 justify-center sm:flex-row sm:gap-4">
               <a href="/rendez-vous" className="btn-primary">Prendre rendez-vous</a>
               <button onClick={reset} className="btn-secondary flex items-center gap-2"><RotateCcw size={16} /> Refaire le quiz</button>
             </div>
@@ -99,11 +99,11 @@ export default function Quiz() {
           <AnimatePresence mode="wait">
             <motion.div key={step} initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -50 }} className="text-center">
               <h3 className="font-serif text-2xl text-charbon mb-8">{q.question}</h3>
-              <div className="grid grid-cols-2 gap-4 max-w-2xl mx-auto">
+              <div className="grid grid-cols-1 gap-3 max-w-2xl mx-auto min-[380px]:grid-cols-2 sm:gap-4">
                 {q.options.map((opt) => (
                   <motion.button key={opt.value} whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}
                     onClick={() => select(opt.value)}
-                    className="p-6 bg-white rounded-sm shadow-card hover:shadow-card-hover transition-shadow text-center group"
+                    className="min-h-24 p-4 sm:p-6 bg-white rounded-sm shadow-card hover:shadow-card-hover transition-shadow text-center group"
                   >
                     <span className="text-4xl mb-3 block">{opt.emoji || '💍'}</span>
                     <span className="text-sm text-charbon/70 group-hover:text-champagne transition-colors">{opt.label}</span>

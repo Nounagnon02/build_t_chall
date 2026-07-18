@@ -51,25 +51,25 @@ export default function Configurateur() {
         <div className="section-container max-w-4xl">
           <SectionTitle title="Configurateur" subtitle="Créez l'univers de votre mariage étape par étape." />
 
-          <div className="flex justify-center gap-4 mb-12">
+          <div className="flex justify-start gap-2 overflow-x-auto pb-2 mb-8 sm:justify-center sm:gap-4 sm:mb-12 scrollbar-hide">
             {configSteps.map((s, i) => (
               <button key={s.key} onClick={() => setStep(i)}
-                className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm transition-all ${
+                className={`flex shrink-0 items-center gap-2 px-4 py-2 rounded-full text-sm transition-all ${
                   i === step ? 'bg-champagne text-white' : i < step ? 'bg-champagne/20 text-champagne' : 'bg-white text-charbon/40'
                 }`}
               >{i < step ? <Check size={14} /> : <s.icon size={14} />} {s.title}</button>
             ))}
           </div>
 
-          <motion.div key={step} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="bg-white p-8 md:p-12 rounded-sm shadow-card">
+          <motion.div key={step} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="bg-white p-5 sm:p-8 md:p-12 rounded-sm shadow-card">
             {step === 0 && (
               <div>
                 <h3 className="font-serif text-xl text-charbon mb-6">Choisissez votre style</h3>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 min-[380px]:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
                   {WEDDING_STYLES.map((s) => (
                     <motion.button key={s.value} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
                       onClick={() => update('style', s.value)}
-                      className={`p-6 rounded-sm border text-center transition-all ${
+                      className={`min-h-16 p-4 sm:p-6 rounded-sm border text-center transition-all ${
                         config.style === s.value ? 'border-champagne bg-champagne/5' : 'border-perle hover:border-champagne/50'
                       }`}
                     ><span className="font-serif text-charbon">{s.label}</span></motion.button>

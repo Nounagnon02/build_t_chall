@@ -67,7 +67,7 @@ export default function Gallery() {
                       loading="lazy"
                       onError={(e) => {
                         e.currentTarget.onerror = null;
-                        e.currentTarget.src = '/images/photo-1519225421980-715cb0215aed.jpg';
+                        e.currentTarget.src = '/images/photo-1519225421980-715cb0215aed.webp';
                       }}
                     />
                   ) : (
@@ -77,7 +77,7 @@ export default function Gallery() {
                     </div>
                   )}
                   <div className="absolute inset-0 bg-gradient-to-t from-charbon/70 via-charbon/10 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300" />
-                  <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                  <div className="absolute bottom-0 left-0 right-0 p-3 opacity-100 transition-all duration-300 sm:translate-y-3 sm:opacity-0 sm:p-4 sm:group-hover:translate-y-0 sm:group-hover:opacity-100">
                     <p className="text-white text-sm font-medium">{photo.title || 'Réalisation'}</p>
                   </div>
                 </motion.div>
@@ -96,7 +96,7 @@ export default function Gallery() {
               className="max-w-full max-h-[85vh] sm:max-h-[90vh] object-contain rounded-sm"
               onError={(e) => {
                 e.currentTarget.onerror = null;
-                e.currentTarget.src = '/images/photo-1519225421980-715cb0215aed.jpg';
+                e.currentTarget.src = '/images/photo-1519225421980-715cb0215aed.webp';
               }}
             />
           </div>

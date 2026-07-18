@@ -12,7 +12,7 @@ const testimonials = [
     venue: 'Château de Vaux-le-Vicomte',
     rating: 5,
     content: 'Ever After Events a transformé notre mariage en un conte de fées. Chaque détail était parfait, chaque moment magique. Claire et son équipe ont été extraordinaires du début à la fin.',
-    image: '/images/photo-1522673607200-164d1b6ce486.jpg',
+    image: '/images/photo-1522673607200-164d1b6ce486.webp',
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ const testimonials = [
     venue: 'Domaine de la Reine',
     rating: 5,
     content: 'Notre mariage franco-marocain était un défi logistique. L\'équipe a su mêler nos deux cultures avec une élégance et un professionnalisme incroyables. Un grand merci !',
-    image: '/images/photo-1529626455594-4ff0802cfb7e.jpg',
+    image: '/images/photo-1529626455594-4ff0802cfb7e.webp',
   },
   {
     id: 3,
@@ -30,7 +30,7 @@ const testimonials = [
     venue: 'Château de Chambord',
     rating: 5,
     content: 'Une organisation irréprochable. Du premier rendez-vous au jour J, tout a été parfaitement orchestré. Nos invités en parlent encore ! Nous recommandons les yeux fermés.',
-    image: '/images/photo-1580489944761-15a19d654956.jpg',
+    image: '/images/photo-1580489944761-15a19d654956.webp',
   },
   {
     id: 4,
@@ -39,7 +39,7 @@ const testimonials = [
     venue: 'Bastide en Provence',
     rating: 5,
     content: 'Le stress du mariage a complètement disparu grâce à leur accompagnement. L\'équipe est professionnelle, bienveillante et incroyablement talentueuse. Merci pour tout !',
-    image: '/images/photo-1534528741775-53994a69daeb.jpg',
+    image: '/images/photo-1534528741775-53994a69daeb.webp',
   },
 ];
 

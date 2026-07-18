@@ -59,7 +59,7 @@ export default function Blog() {
                         loading="lazy"
                         onError={(e) => {
                           e.currentTarget.onerror = null;
-                          e.currentTarget.src = '/images/photo-1519225421980-715cb0215aed.jpg';
+                          e.currentTarget.src = '/images/photo-1519225421980-715cb0215aed.webp';
                         }}
                       />
                     ) : (
