@@ -1,6 +1,6 @@
 import { ArrowUpRight, CalendarDays, MapPin, UserCheck } from 'lucide-react';
 
-const demoUrl = import.meta.env.VITE_INVITATION_DEMO_URL || '#contact';
+const demoUrl = '/invitation-demo';
 
 export default function DigitalInvitationSection() {
   return (
@@ -33,7 +33,7 @@ export default function DigitalInvitationSection() {
               </div>
             ))}
           </div>
-          <a href={demoUrl} target={demoUrl.startsWith('http') ? '_blank' : undefined} rel={demoUrl.startsWith('http') ? 'noreferrer' : undefined} className="mt-9 inline-flex items-center gap-2 bg-charbon px-7 py-4 text-xs font-medium uppercase tracking-[0.2em] text-white transition-colors hover:bg-[#8f2942]">
+          <a href={demoUrl} className="mt-9 inline-flex items-center gap-2 bg-charbon px-7 py-4 text-xs font-medium uppercase tracking-[0.2em] text-white transition-colors hover:bg-[#8f2942]">
             Voir le prototype <ArrowUpRight size={16} />
           </a>
         </div>

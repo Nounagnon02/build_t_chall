@@ -29,6 +29,7 @@ const About = lazy(() => import('./pages/About'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 const Login = lazy(() => import('./pages/Login'));
 const Register = lazy(() => import('./pages/Register'));
+const InvitationDemo = lazy(() => import('./pages/InvitationDemo'));
 
 // Client pages
 const ClientDashboard = lazy(() => import('./pages/client/Dashboard'));
@@ -53,11 +54,11 @@ import AdminRoute from './router/AdminRoute';
 
 function AppContent() {
   const location = useLocation();
-  const isHome = location.pathname === '/';
+  const isInvitationDemo = location.pathname === '/invitation-demo';
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Header />
+      {!isInvitationDemo && <Header />}
       <main id="main-content" className="flex-grow">
         <AnimatePresence mode="wait">
           <Suspense fallback={<LoadingScreen />}>
@@ -84,6 +85,7 @@ function AppContent() {
               <Route path="/a-propos" element={<PageTransition><About /></PageTransition>} />
               <Route path="/login" element={<PageTransition><Login /></PageTransition>} />
               <Route path="/inscription" element={<PageTransition><Register /></PageTransition>} />
+              <Route path="/invitation-demo" element={<InvitationDemo />} />
 
               {/* Client routes */}
               <Route path="/client" element={<ProtectedRoute><PageTransition><ClientDashboard /></PageTransition></ProtectedRoute>} />
@@ -108,9 +110,9 @@ function AppContent() {
           </Suspense>
         </AnimatePresence>
       </main>
-      <Footer />
-      <Chatbot />
-      <CursorGlow />
+      {!isInvitationDemo && <Footer />}
+      {!isInvitationDemo && <Chatbot />}
+      {!isInvitationDemo && <CursorGlow />}
     </div>
   );
 }
