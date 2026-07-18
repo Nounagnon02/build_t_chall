@@ -27,17 +27,17 @@ export default function Home() {
       <SectionDivider variant="curveUp" color="fill-ivory" />
 
       <ScrollAnimationWrapper>
-        <AboutSection />
+        <ServicesSection />
       </ScrollAnimationWrapper>
       <SectionDivider variant="wave" color="fill-white" />
 
       <ScrollAnimationWrapper>
-        <ServicesSection />
+        <ProcessSection />
       </ScrollAnimationWrapper>
       <SectionDivider variant="angle" color="fill-ivory" />
 
       <ScrollAnimationWrapper>
-        <ProcessSection />
+        <AboutSection />
       </ScrollAnimationWrapper>
       <SectionDivider variant="curveDown" color="fill-white" />
 

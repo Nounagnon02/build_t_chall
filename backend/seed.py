@@ -85,7 +85,7 @@ SERVICES: list[dict[str, Any]] = [
             "et coordination complète le jour J avec deux chefs de projet."
         ),
         "icon_name": "stars",
-        "image_url": "https://images.unsplash.com/photo-1519741497674-611481863552?w=800",
+        "image_url": "/images/photo-1519741497674-611481863552.jpg",
         "price_from": Decimal("2500000"),  # FCFA
         "inclusions": json.dumps([
             "Recherche et sélection des prestataires",
@@ -110,7 +110,7 @@ SERVICES: list[dict[str, Any]] = [
             "organisation sans perdre la main."
         ),
         "icon_name": "edit_note",
-        "image_url": "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800",
+        "image_url": "/images/photo-1511795409834-ef04bbd61622.jpg",
         "price_from": Decimal("1200000"),
         "inclusions": json.dumps([
             "Coordination des prestataires sélectionnés",
@@ -133,7 +133,7 @@ SERVICES: list[dict[str, Any]] = [
             "Chaque élément est pensé pour raconter votre histoire."
         ),
         "icon_name": "palette",
-        "image_url": "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800",
+        "image_url": "/images/photo-1464366400600-7168b8af9bc3.jpg",
         "price_from": Decimal("800000"),
         "is_custom": True,
         "inclusions": json.dumps([
@@ -157,7 +157,7 @@ SERVICES: list[dict[str, Any]] = [
             "plus belle journée."
         ),
         "icon_name": "celebration",
-        "image_url": "https://images.unsplash.com/photo-1410103594768-5fe9d6e7653f?w=800",
+        "image_url": "/images/photo-1410103594768-5fe9d6e7653f.jpg",
         "price_from": Decimal("750000"),
         "inclusions": json.dumps([
             "Répétition générale la veille",
@@ -180,7 +180,7 @@ SERVICES: list[dict[str, Any]] = [
             "Un service sur mesure pour les couples qui veulent le meilleur."
         ),
         "icon_name": "concierge",
-        "image_url": "https://images.unsplash.com/photo-1510076857177-7470076d4098?w=800",
+        "image_url": "/images/photo-1510076857177-7470076d4098.jpg",
         "price_from": Decimal("1500000"),
         "is_custom": True,
         "inclusions": json.dumps([
@@ -204,7 +204,7 @@ SERVICES: list[dict[str, Any]] = [
             "clé en main ou sur-mesure avec découverte du Bénin."
         ),
         "icon_name": "flight",
-        "image_url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800",
+        "image_url": "/images/photo-1507525428034-b723cf961d3e.jpg",
         "price_from": Decimal("3000000"),
         "is_custom": True,
         "inclusions": json.dumps([
@@ -228,7 +228,7 @@ SERVICES: list[dict[str, Any]] = [
             "traditionnels : créez l'ambiance parfaite du cocktail au gâteau."
         ),
         "icon_name": "music_note",
-        "image_url": "https://images.unsplash.com/photo-1465847899084-d164df4dedc2?w=800",
+        "image_url": "/images/photo-1465847899084-d164df4dedc2.jpg",
         "price_from": Decimal("600000"),
         "inclusions": json.dumps([
             "Conseil et sélection musicale",
@@ -250,7 +250,7 @@ SERVICES: list[dict[str, Any]] = [
             "l'impression, chaque détail compte. Style moderne ou traditionnel."
         ),
         "icon_name": "brush",
-        "image_url": "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=800",
+        "image_url": "/images/photo-1518199266791-5375a83190b7.jpg",
         "price_from": Decimal("450000"),
         "inclusions": json.dumps([
             "Identité visuelle complète",
@@ -276,7 +276,7 @@ USERS: list[dict[str, Any]] = [
         "phone": "+229 97 12 34 56",
         "role": "admin",
         "is_verified": True,
-        "avatar_url": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200",
+        "avatar_url": "/images/photo-1494790108377-be9c29b29330.jpg",
     },
     {
         "email": "espérance.akpakpo@example.com",
@@ -286,7 +286,7 @@ USERS: list[dict[str, Any]] = [
         "phone": "+229 97 23 45 67",
         "role": "client",
         "is_verified": True,
-        "avatar_url": "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=200",
+        "avatar_url": "/images/photo-1529626455594-4ff0802cfb7e.jpg",
     },
     {
         "email": "gildas.hounsou@example.com",
@@ -296,7 +296,7 @@ USERS: list[dict[str, Any]] = [
         "phone": "+229 97 34 56 78",
         "role": "client",
         "is_verified": True,
-        "avatar_url": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200",
+        "avatar_url": "/images/photo-1507003211169-0a1dd7228f2d.jpg",
     },
     {
         "email": "judicael.dossou@example.com",
@@ -306,7 +306,7 @@ USERS: list[dict[str, Any]] = [
         "phone": "+229 97 45 67 89",
         "role": "client",
         "is_verified": True,
-        "avatar_url": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200",
+        "avatar_url": "/images/photo-1506794778202-cad84cf45f1d.jpg",
     },
     {
         "email": "pelagie.sossou@example.com",
@@ -316,7 +316,7 @@ USERS: list[dict[str, Any]] = [
         "phone": "+229 97 56 78 90",
         "role": "client",
         "is_verified": True,
-        "avatar_url": "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=200",
+        "avatar_url": "/images/photo-1531746020798-e6953c6e8e04.jpg",
     },
     {
         "email": "romuald.agossou@example.com",
@@ -326,7 +326,7 @@ USERS: list[dict[str, Any]] = [
         "phone": "+229 97 67 89 01",
         "role": "client",
         "is_verified": True,
-        "avatar_url": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200",
+        "avatar_url": "/images/photo-1500648767791-00dcc994a43e.jpg",
     },
 ]
 
@@ -430,8 +430,8 @@ GALLERY_PHOTOS: list[dict[str, Any]] = [
     {
         "title": "Mariage Traditionnel à Cotonou",
         "description": "Cérémonie de mariage traditionnel au Palais des Congrès, ambiance festive.",
-        "image_url": "https://images.unsplash.com/photo-1519741497674-611481863552?w=800",
-        "thumbnail_url": "https://images.unsplash.com/photo-1519741497674-611481863552?w=400",
+        "image_url": "/images/photo-1519741497674-611481863552.jpg",
+        "thumbnail_url": "/images/photo-1519741497674-611481863552.jpg",
         "width": 1200, "height": 800,
         "venue": "Palais des Congrès, Cotonou",
         "season": "ete",
@@ -443,8 +443,8 @@ GALLERY_PHOTOS: list[dict[str, Any]] = [
     {
         "title": "Cérémonie Bohème sur la Plage de Grand-Popo",
         "description": "Arche fleurie et drapés pour une cérémonie bohème en bord de mer.",
-        "image_url": "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800",
-        "thumbnail_url": "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=400",
+        "image_url": "/images/photo-1511795409834-ef04bbd61622.jpg",
+        "thumbnail_url": "/images/photo-1511795409834-ef04bbd61622.jpg",
         "width": 1200, "height": 800,
         "venue": "Plage de Grand-Popo",
         "season": "ete",
@@ -456,8 +456,8 @@ GALLERY_PHOTOS: list[dict[str, Any]] = [
     {
         "title": "Centre de Table aux Tons Tropicaux",
         "description": "Composition florale aux tons vifs avec fleurs tropicales.",
-        "image_url": "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800",
-        "thumbnail_url": "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=400",
+        "image_url": "/images/photo-1464366400600-7168b8af9bc3.jpg",
+        "thumbnail_url": "/images/photo-1464366400600-7168b8af9bc3.jpg",
         "width": 800, "height": 1200,
         "season": "printemps",
         "rating": 4.7,
@@ -468,8 +468,8 @@ GALLERY_PHOTOS: list[dict[str, Any]] = [
     {
         "title": "Mariage Moderne à l'Hôtel du Lac",
         "description": "Dîner chic sur pilotis avec vue sur le lac Nokoué à Ganvié.",
-        "image_url": "https://images.unsplash.com/photo-1410103594768-5fe9d6e7653f?w=800",
-        "thumbnail_url": "https://images.unsplash.com/photo-1410103594768-5fe9d6e7653f?w=400",
+        "image_url": "/images/photo-1410103594768-5fe9d6e7653f.jpg",
+        "thumbnail_url": "/images/photo-1410103594768-5fe9d6e7653f.jpg",
         "width": 1200, "height": 800,
         "venue": "Hôtel du Lac, Ganvié",
         "season": "ete",
@@ -481,8 +481,8 @@ GALLERY_PHOTOS: list[dict[str, Any]] = [
     {
         "title": "Couple Asiatique au Jardin",
         "description": "Séance photo élégante d'un couple dans un jardin luxuriant.",
-        "image_url": "https://images.unsplash.com/photo-1529636798458-92182e662485?w=800",
-        "thumbnail_url": "https://images.unsplash.com/photo-1529636798458-92182e662485?w=400",
+        "image_url": "/images/photo-1529636798458-92182e662485.jpg",
+        "thumbnail_url": "/images/photo-1529636798458-92182e662485.jpg",
         "width": 1200, "height": 800,
         "season": "printemps",
         "rating": 4.8,
@@ -493,8 +493,8 @@ GALLERY_PHOTOS: list[dict[str, Any]] = [
     {
         "title": "Mariage à l'Église Saint-Michel",
         "description": "Sortie de messe sous une haie d'honneur à Cotonou.",
-        "image_url": "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=800",
-        "thumbnail_url": "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=400",
+        "image_url": "/images/photo-1501281668745-f7f57925c3b4.jpg",
+        "thumbnail_url": "/images/photo-1501281668745-f7f57925c3b4.jpg",
         "width": 1200, "height": 800,
         "venue": "Église Saint-Michel, Cotonou",
         "season": "ete",
@@ -506,8 +506,8 @@ GALLERY_PHOTOS: list[dict[str, Any]] = [
     {
         "title": "Couple Européen en Ville",
         "description": "Séance photo urbaine d'un couple dans une rue pavée.",
-        "image_url": "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800",
-        "thumbnail_url": "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400",
+        "image_url": "/images/photo-1511285560929-80b456fea0bc.jpg",
+        "thumbnail_url": "/images/photo-1511285560929-80b456fea0bc.jpg",
         "width": 800, "height": 1200,
         "season": "printemps",
         "rating": 4.6,
@@ -518,8 +518,8 @@ GALLERY_PHOTOS: list[dict[str, Any]] = [
     {
         "title": "Décoration de Table Luxueuse",
         "description": "Vaisselle dorée, verrerie cristal et centre de table sophistiqué.",
-        "image_url": "https://images.unsplash.com/photo-1516749442048-5fe8bfa3e624?w=800",
-        "thumbnail_url": "https://images.unsplash.com/photo-1516749442048-5fe8bfa3e624?w=400",
+        "image_url": "/images/photo-1516749442048-5fe8bfa3e624.jpg",
+        "thumbnail_url": "/images/photo-1516749442048-5fe8bfa3e624.jpg",
         "width": 1200, "height": 800,
         "season": "hiver",
         "rating": 4.5,
@@ -530,8 +530,8 @@ GALLERY_PHOTOS: list[dict[str, Any]] = [
     {
         "title": "Couple Africain en Tenue Traditionnelle",
         "description": "Magnifique couple en tenues traditionnelles béninoises.",
-        "image_url": "https://images.unsplash.com/photo-1587271407850-8d438ca5fdf2?w=800",
-        "thumbnail_url": "https://images.unsplash.com/photo-1587271407850-8d438ca5fdf2?w=400",
+        "image_url": "/images/photo-1587271407850-8d438ca5fdf2.jpg",
+        "thumbnail_url": "/images/photo-1587271407850-8d438ca5fdf2.jpg",
         "width": 1200, "height": 800,
         "venue": "Ouidah",
         "season": "ete",
@@ -543,8 +543,8 @@ GALLERY_PHOTOS: list[dict[str, Any]] = [
     {
         "title": "Mariage Africain Moderne",
         "description": "Couple africain contemporain lors d'une réception élégante.",
-        "image_url": "https://images.unsplash.com/photo-1542038333242-77ec32e5249a?w=800",
-        "thumbnail_url": "https://images.unsplash.com/photo-1542038333242-77ec32e5249a?w=400",
+        "image_url": "/images/photo-1542038333242-77ec32e5249a.jpg",
+        "thumbnail_url": "/images/photo-1542038333242-77ec32e5249a.jpg",
         "width": 1200, "height": 800,
         "season": "ete",
         "rating": 4.8,
@@ -555,8 +555,8 @@ GALLERY_PHOTOS: list[dict[str, Any]] = [
     {
         "title": "Couple Asiatique en Tenue de Soirée",
         "description": "Portrait élégant d'un couple asiatique en tenue de soirée.",
-        "image_url": "https://images.unsplash.com/photo-1566706510291-5e6fcdd6d25c?w=800",
-        "thumbnail_url": "https://images.unsplash.com/photo-1566706510291-5e6fcdd6d25c?w=400",
+        "image_url": "/images/photo-1566706510291-5e6fcdd6d25c.jpg",
+        "thumbnail_url": "/images/photo-1566706510291-5e6fcdd6d25c.jpg",
         "width": 800, "height": 1200,
         "season": "printemps",
         "rating": 4.6,
@@ -567,8 +567,8 @@ GALLERY_PHOTOS: list[dict[str, Any]] = [
     {
         "title": "Pièce Montée et Gâteau",
         "description": "Pièce montée traditionnelle revisitée avec des fleurs fraîches.",
-        "image_url": "https://images.unsplash.com/photo-1555244162-803834f70033?w=800",
-        "thumbnail_url": "https://images.unsplash.com/photo-1555244162-803834f70033?w=400",
+        "image_url": "/images/photo-1555244162-803834f70033.jpg",
+        "thumbnail_url": "/images/photo-1555244162-803834f70033.jpg",
         "width": 800, "height": 1200,
         "season": "toutes",
         "rating": 4.6,
@@ -579,8 +579,8 @@ GALLERY_PHOTOS: list[dict[str, Any]] = [
     {
         "title": "Cocktail en Terrasse au Bénin",
         "description": "Moment convivial autour d'un cocktail avec vue sur la lagune.",
-        "image_url": "https://images.unsplash.com/photo-1530023367847-a683933f4172?w=800",
-        "thumbnail_url": "https://images.unsplash.com/photo-1530023367847-a683933f4172?w=400",
+        "image_url": "/images/photo-1530023367847-a683933f4172.jpg",
+        "thumbnail_url": "/images/photo-1530023367847-a683933f4172.jpg",
         "width": 1200, "height": 800,
         "season": "ete",
         "rating": 4.7,
@@ -591,8 +591,8 @@ GALLERY_PHOTOS: list[dict[str, Any]] = [
     {
         "title": "Couple Métis à la Plage",
         "description": "Portrait romantique d'un couple métis au bord de l'océan.",
-        "image_url": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800",
-        "thumbnail_url": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400",
+        "image_url": "/images/photo-1507003211169-0a1dd7228f2d.jpg",
+        "thumbnail_url": "/images/photo-1507003211169-0a1dd7228f2d.jpg",
         "width": 1200, "height": 800,
         "season": "ete",
         "rating": 4.8,
@@ -603,8 +603,8 @@ GALLERY_PHOTOS: list[dict[str, Any]] = [
     {
         "title": "Mariage d'Hiver aux Chandelles",
         "description": "Dîner aux chandelles dans une salle voûtée, ambiance feutrée.",
-        "image_url": "https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=800",
-        "thumbnail_url": "https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=400",
+        "image_url": "/images/photo-1505236858219-8359eb29e329.jpg",
+        "thumbnail_url": "/images/photo-1505236858219-8359eb29e329.jpg",
         "width": 1200, "height": 800,
         "season": "hiver",
         "rating": 4.9,
@@ -615,8 +615,8 @@ GALLERY_PHOTOS: list[dict[str, Any]] = [
     {
         "title": "Cérémonie Laïque en Plein Air",
         "description": "Arche fleurie et cérémonie laïque au cœur de la nature.",
-        "image_url": "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800",
-        "thumbnail_url": "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=400",
+        "image_url": "/images/photo-1519225421980-715cb0215aed.jpg",
+        "thumbnail_url": "/images/photo-1519225421980-715cb0215aed.jpg",
         "width": 1200, "height": 800,
         "season": "printemps",
         "rating": 4.7,
@@ -646,7 +646,7 @@ TESTIMONIALS: list[dict[str, Any]] = [
             "accompagnés avec bienveillance et expertise. Les invités n'arrêtent "
             "pas de nous dire que c'était le plus beau mariage de l'année !"
         ),
-        "photo_url": "https://images.unsplash.com/photo-1587271407850-8d438ca5fdf2?w=200",
+        "photo_url": "/images/photo-1587271407850-8d438ca5fdf2.jpg",
         "is_verified": True,
         "is_featured": True,
         "sort_order": 1,
@@ -666,7 +666,7 @@ TESTIMONIALS: list[dict[str, Any]] = [
             "imprévus avec calme et professionnalisme. Nous recommandons les "
             "yeux fermés !"
         ),
-        "photo_url": "https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?w=200",
+        "photo_url": "/images/photo-1502823403499-6ccfcf4fb453.jpg",
         "is_verified": True,
         "is_featured": True,
         "sort_order": 2,
@@ -685,7 +685,7 @@ TESTIMONIALS: list[dict[str, Any]] = [
             "simplement magique. Merci pour votre créativité et votre réactivité. "
             "Vous avez rendu ce moment inoubliable."
         ),
-        "photo_url": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200",
+        "photo_url": "/images/photo-1534528741775-53994a69daeb.jpg",
         "is_verified": True,
         "is_featured": True,
         "sort_order": 3,
@@ -704,7 +704,7 @@ TESTIMONIALS: list[dict[str, Any]] = [
             "impeccable, nous n'avons eu à nous soucier de rien. Mention spéciale "
             "pour le cocktail dinatoire qui était un véritable voyage gustatif !"
         ),
-        "photo_url": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200",
+        "photo_url": "/images/photo-1544005313-94ddf0286df2.jpg",
         "is_verified": True,
         "is_featured": False,
         "sort_order": 4,
@@ -722,7 +722,7 @@ TESTIMONIALS: list[dict[str, Any]] = [
             "a ébloui tous nos invités. Tout était parfait, du "
             "moindre détail floral au choix du menu. Une organisation sans faille !"
         ),
-        "photo_url": "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=200",
+        "photo_url": "/images/photo-1487412720507-e7ab37603c6f.jpg",
         "is_verified": True,
         "is_featured": True,
         "sort_order": 5,
@@ -739,7 +739,7 @@ TESTIMONIALS: list[dict[str, Any]] = [
             "prestataires exceptionnels, et la coordination jour J était d'une "
             "précision. Merci du fond du cœur."
         ),
-        "photo_url": "https://images.unsplash.com/photo-1552338614-bb71a2d380b5?w=200",
+        "photo_url": "/images/photo-1552338614-bb71a2d380b5.jpg",
         "is_verified": True,
         "is_featured": False,
         "sort_order": 6,
@@ -756,7 +756,7 @@ TESTIMONIALS: list[dict[str, Any]] = [
             "les prestataires locaux et internationaux était remarquable. "
             "Un grand merci à Mélissa pour sa patience et son professionnalisme."
         ),
-        "photo_url": "https://images.unsplash.com/photo-1566706510291-5e6fcdd6d25c?w=200",
+        "photo_url": "/images/photo-1566706510291-5e6fcdd6d25c.jpg",
         "is_verified": True,
         "is_featured": False,
         "sort_order": 7,
@@ -774,7 +774,7 @@ TESTIMONIALS: list[dict[str, Any]] = [
             "organisées. Merci pour votre créativité débordante et votre "
             "professionnalisme sans faille."
         ),
-        "photo_url": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200",
+        "photo_url": "/images/photo-1494790108377-be9c29b29330.jpg",
         "is_verified": True,
         "is_featured": False,
         "sort_order": 8,
@@ -806,7 +806,7 @@ BLOG_POSTS: list[dict[str, Any]] = [
             "pour des solutions clé en main pour la décoration. 10. Respirez "
             "et faites-vous confiance !"
         ),
-        "cover_image_url": "https://images.unsplash.com/photo-1519741497674-611481863552?w=800",
+        "cover_image_url": "/images/photo-1519741497674-611481863552.jpg",
         "category": "organisation",
         "reading_time_minutes": 6,
         "is_published": True,
@@ -833,7 +833,7 @@ BLOG_POSTS: list[dict[str, Any]] = [
             "limitez la liste d'invités, et faites appel à un wedding planner "
             "qui vous aidera à négocier avec les prestataires."
         ),
-        "cover_image_url": "https://images.unsplash.com/photo-1553729459-afe8f2e2e65a?w=800",
+        "cover_image_url": "/images/photo-1553729459-afe8f2e2e65a.jpg",
         "category": "budget",
         "reading_time_minutes": 6,
         "is_published": True,
@@ -859,7 +859,7 @@ BLOG_POSTS: list[dict[str, Any]] = [
             "et histoire. Enfin, l'Hôtel Bel Azur et le Novotel de Cotonou "
             "sont des valeurs sûres pour une réception élégante."
         ),
-        "cover_image_url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800",
+        "cover_image_url": "/images/photo-1507525428034-b723cf961d3e.jpg",
         "category": "decoration",
         "reading_time_minutes": 4,
         "is_published": True,
@@ -883,7 +883,7 @@ BLOG_POSTS: list[dict[str, Any]] = [
             "éléments traditionnels. N'oubliez pas : commencez vos essayages "
             "au moins 4 mois avant le mariage, et prévoyez 2 à 3 retouches."
         ),
-        "cover_image_url": "https://images.unsplash.com/photo-1587271407850-8d438ca5fdf2?w=800",
+        "cover_image_url": "/images/photo-1587271407850-8d438ca5fdf2.jpg",
         "category": "dress",
         "reading_time_minutes": 5,
         "is_published": True,
@@ -909,7 +909,7 @@ BLOG_POSTS: list[dict[str, Any]] = [
             "Un bon traiteur saura s'adapter à vos contraintes (allergies, "
             "régimes spécifiques)."
         ),
-        "cover_image_url": "https://images.unsplash.com/photo-1555244162-803834f70033?w=800",
+        "cover_image_url": "/images/photo-1555244162-803834f70033.jpg",
         "category": "catering",
         "reading_time_minutes": 5,
         "is_published": True,
@@ -1096,7 +1096,7 @@ FAQ_LIST: list[dict[str, Any]] = [
 PARTNERS: list[dict[str, Any]] = [
     {
         "name": "Délices du Bénin Traiteur",
-        "logo_url": "https://images.unsplash.com/photo-1555244162-803834f70033?w=200",
+        "logo_url": "/images/photo-1555244162-803834f70033.jpg",
         "website_url": "https://www.delicesdubenin.com",
         "specialty": "Traiteur gastronomique béninois et international",
         "tier": "gold",
@@ -1104,7 +1104,7 @@ PARTNERS: list[dict[str, Any]] = [
     },
     {
         "name": "Studio Flash Photo Bénin",
-        "logo_url": "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=200",
+        "logo_url": "/images/photo-1511795409834-ef04bbd61622.jpg",
         "website_url": "https://www.studioflashbenin.com",
         "specialty": "Photographie et vidéo de mariage",
         "tier": "gold",
@@ -1112,7 +1112,7 @@ PARTNERS: list[dict[str, Any]] = [
     },
     {
         "name": "Atelier Fleurs Tropicales",
-        "logo_url": "https://images.unsplash.com/photo-1519741497674-611481863552?w=200",
+        "logo_url": "/images/photo-1519741497674-611481863552.jpg",
         "website_url": "https://www.atelierfleurscotonou.com",
         "specialty": "Décoration florale tropicale sur mesure",
         "tier": "gold",
@@ -1120,7 +1120,7 @@ PARTNERS: list[dict[str, Any]] = [
     },
     {
         "name": "Maison du Pagne Tissé",
-        "logo_url": "https://images.unsplash.com/photo-1587271407850-8d438ca5fdf2?w=200",
+        "logo_url": "/images/photo-1587271407850-8d438ca5fdf2.jpg",
         "website_url": "https://www.maisonpagnetisse.com",
         "specialty": "Création de tenues traditionnelles et robes de mariée",
         "tier": "silver",
@@ -1128,7 +1128,7 @@ PARTNERS: list[dict[str, Any]] = [
     },
     {
         "name": "Hôtel Bel Azur",
-        "logo_url": "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=200",
+        "logo_url": "/images/photo-1519167758481-83f550bb49b3.jpg",
         "website_url": "https://www.hotelbelazur.com",
         "specialty": "Hôtel et lieu de réception de luxe",
         "tier": "silver",
@@ -1136,7 +1136,7 @@ PARTNERS: list[dict[str, Any]] = [
     },
     {
         "name": "DJ Master Afrobeat",
-        "logo_url": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=200",
+        "logo_url": "/images/photo-1493225457124-a3eb161ffa5f.jpg",
         "website_url": "https://www.djmasterbénin.com",
         "specialty": "Animation musicale et DJ set",
         "tier": "partner",

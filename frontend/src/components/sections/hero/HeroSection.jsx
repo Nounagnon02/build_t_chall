@@ -5,8 +5,8 @@ import Button from '../../common/Button';
 import { staggerContainer, staggerItem } from '../../../utils/animations';
 import useAnimatedCounter from '../../../hooks/useAnimatedCounter';
 
-const HERO_IMAGE = "https://images.unsplash.com/photo-1519741497674-611481863552?w=1600&q=85";
-const HERO_IMAGE_MOBILE = "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=75";
+const HERO_IMAGE = "/images/photo-1519741497674-611481863552.jpg";
+const HERO_IMAGE_MOBILE = "/images/photo-1519741497674-611481863552.jpg";
 
 export default function HeroSection() {
   const { ref: counterRef, count: weddingCount } = useAnimatedCounter(420, 2500);
@@ -15,9 +15,9 @@ export default function HeroSection() {
 
   // Scroll-linked parallax
   const { scrollY } = useScroll();
-  const heroOpacity = useTransform(scrollY, [0, 400], [1, 0]);
-  const heroScale = useTransform(scrollY, [0, 400], [1, 0.95]);
-  const heroY = useTransform(scrollY, [0, 400], [0, 100]);
+  const heroOpacity = useTransform(scrollY, [0, 220], [1, 0.2]);
+  const heroScale = useTransform(scrollY, [0, 220], [1, 0.98]);
+  const heroY = useTransform(scrollY, [0, 220], [0, 40]);
 
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 768);
@@ -66,16 +66,16 @@ export default function HeroSection() {
       {/* Animated particles overlay */}
       <ParticlesCanvas />
 
-      {/* Sculptural background text */}
+      {/* Subtle brand watermark */}
       <motion.div
-        className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
+        className="absolute inset-0 flex items-end justify-center pointer-events-none select-none"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.5, delay: 0.5 }}
         aria-hidden="true"
       >
-        <span className="text-outline-white text-[clamp(6rem,20vw,20rem)] font-display font-black leading-none tracking-[-0.04em] opacity-10">
-          EVER AFTER
+        <span className="mb-16 text-[clamp(3rem,10vw,6rem)] font-display font-black uppercase tracking-[0.4em] text-white/10">
+          Ever After
         </span>
       </motion.div>
 
@@ -90,22 +90,25 @@ export default function HeroSection() {
           animate="visible"
           className="max-w-4xl mx-auto"
         >
-          {/* Main heading — sculptural Roslindale DisplayUltra */}
+          <motion.div variants={staggerItem} className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-[11px] uppercase tracking-[0.35em] text-white/80 backdrop-blur-sm">
+            <span className="h-2 w-2 rounded-full bg-champagne" />
+            Organisation d'événements premium
+          </motion.div>
+
           <motion.h1
             variants={staggerItem}
             className="font-display font-black text-[clamp(2.35rem,7vw,8rem)] sm:text-[clamp(3rem,8vw,8rem)] leading-[0.9] text-white tracking-[-0.02em]"
           >
-            <span className="block">Chaque mariage</span>
-            <span className="block">est une</span>
-            <span className="gold-text block">œuvre d'art</span>
+            <span className="block">Des mariages</span>
+            <span className="block">qui respirent</span>
+            <span className="gold-text block">le luxe</span>
           </motion.h1>
 
-          {/* Subtitle */}
           <motion.p
             variants={staggerItem}
             className="font-elegant text-base sm:text-lg md:text-xl text-white/70 italic max-w-2xl mx-auto mb-8 sm:mb-10"
           >
-            Ever After Events — L'agence qui transforme vos rêves en réalité
+            Ever After Events transforme chaque cérémonie en expérience raffinée, fluide et inoubliable.
           </motion.p>
 
           {/* CTAs */}
@@ -184,7 +187,7 @@ function ParticlesCanvas() {
     window.addEventListener('mousemove', handleMouseMove);
 
     // Create particles — 3 types for richness
-    const PARTICLE_COUNT = 80;
+    const PARTICLE_COUNT = 40;
     for (let i = 0; i < PARTICLE_COUNT; i++) {
       const type = i < 40 ? 'dot' : i < 65 ? 'ring' : 'sparkle';
       particles.push({

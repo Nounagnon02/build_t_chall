@@ -8,14 +8,14 @@ import { staggerContainer, staggerItem } from '../../../utils/animations';
 import { GALLERY_FILTERS } from '../../../utils/constants';
 
 const galleryPhotos = [
-  { id: '1', title: 'Château de Vaux', style: 'romantique', src: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80', span: 'row-span-2' },
-  { id: '2', title: 'Domaine Provençal', style: 'boheme', src: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600&q=80', span: '' },
-  { id: '3', title: 'Réception Luxe', style: 'luxe', src: 'https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=600&q=80', span: '' },
-  { id: '4', title: 'Mariage Bohème', style: 'boheme', src: 'https://images.unsplash.com/photo-1464694555480-f0d5bb2b7f2b?w=600&q=80', span: '' },
-  { id: '5', title: 'Élégance Moderne', style: 'moderne', src: 'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=600&q=80', span: 'row-span-2' },
-  { id: '6', title: 'Cérémonie Champêtre', style: 'champetre', src: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=600&q=80', span: '' },
-  { id: '7', title: 'Mariage Oriental', style: 'oriental', src: 'https://images.unsplash.com/photo-1506574733394-f31867fcc6c9?w=600&q=80', span: '' },
-  { id: '8', title: 'Luxueuse Soirée', style: 'luxe', src: 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=600&q=80', span: '' },
+  { id: '1', title: 'Château de Vaux', style: 'romantique', src: '/images/photo-1519741497674-611481863552.jpg', span: 'row-span-2' },
+  { id: '2', title: 'Domaine Provençal', style: 'boheme', src: '/images/photo-1511795409834-ef04bbd61622.jpg', span: '' },
+  { id: '3', title: 'Réception Luxe', style: 'luxe', src: '/images/photo-1505236858219-8359eb29e329.jpg', span: '' },
+  { id: '4', title: 'Mariage Bohème', style: 'boheme', src: '/images/photo-1464694555480-f0d5bb2b7f2b.jpg', span: '' },
+  { id: '5', title: 'Élégance Moderne', style: 'moderne', src: '/images/photo-1501281668745-f7f57925c3b4.jpg', span: 'row-span-2' },
+  { id: '6', title: 'Cérémonie Champêtre', style: 'champetre', src: '/images/photo-1519225421980-715cb0215aed.jpg', span: '' },
+  { id: '7', title: 'Mariage Oriental', style: 'oriental', src: '/images/photo-1506574733394-f31867fcc6c9.jpg', span: '' },
+  { id: '8', title: 'Luxueuse Soirée', style: 'luxe', src: '/images/photo-1519167758481-83f550bb49b3.jpg', span: '' },
 ];
 
 export default function GallerySection() {

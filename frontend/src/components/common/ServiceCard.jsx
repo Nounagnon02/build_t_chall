@@ -29,10 +29,10 @@ export default function ServiceCard({ service }) {
         <p data-depth="0.5" className="text-sm text-charbon/55 leading-relaxed flex-1">
           {service.subtitle || service.description}
         </p>
-        {service.price_from && (
+        {(service.price_from || service.price) && (
           <div className="flex items-center justify-between mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-perle/70">
             <span className="font-serif text-sm sm:text-base text-champagne font-bold leading-tight">
-              À partir de {Number(service.price_from).toLocaleString('fr-FR')}€
+              {service.price_from ? `À partir de ${Number(service.price_from).toLocaleString('fr-FR')} FCFA` : service.price}
             </span>
             <ArrowRight size={15} className="text-charbon/20 group-hover:text-champagne group-hover:translate-x-1 transition-all shrink-0" />
           </div>

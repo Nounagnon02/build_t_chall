@@ -10,7 +10,12 @@
       "Read(//home/rodegohoue/Mes_projets/ever_after_events/backend/**)",
       "Bash(sqlite3 data.db \"SELECT question, substr\\(answer, 1, 80\\) FROM faqs LIMIT 5\")",
       "Bash(python3 -m py_compile app/core/database.py app/core/config.py app/main.py alembic/env.py)",
-      "Bash(python3 -c \"import yaml,sys; yaml.safe_load\\(open\\('../render.yaml'\\)\\); print\\('OK: render.yaml YAML valide'\\)\")"
+      "Bash(python3 -c \"import yaml,sys; yaml.safe_load\\(open\\('../render.yaml'\\)\\); print\\('OK: render.yaml YAML valide'\\)\")",
+      "Bash(curl -s http://localhost:8000/api/v1/blog/posts)",
+      "Bash(grep -rn \"images.unsplash.com\\\\|cloudinary\\\\|image_url\\\\|img_url\\\\|avatar_url\\\\|cover_image\\\\|photo_url\\\\|logo_url\\\\|thumbnail_url\" --include=\"*.py\" --include=\"*.jsx\" --include=\"*.js\" --include=\"*.tsx\" --include=\"*.json\" --include=\"*.md\" | grep -v node_modules | grep -v \".venv\" | grep -v \".pytest_cache\" > /tmp/all_images.txt && cat /tmp/all_images.txt)",
+      "Read(//tmp/**)",
+      "Bash(python /tmp/gen_mapping.py)",
+      "Bash(tee frontend/public/images/image-mapping.json)"
     ]
   }
 }

@@ -67,7 +67,7 @@ export default function Gallery() {
                       loading="lazy"
                       onError={(e) => {
                         e.currentTarget.onerror = null;
-                        e.currentTarget.src = 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1200&q=80';
+                        e.currentTarget.src = '/images/photo-1519225421980-715cb0215aed.jpg';
                       }}
                     />
                   ) : (
@@ -96,7 +96,7 @@ export default function Gallery() {
               className="max-w-full max-h-[85vh] sm:max-h-[90vh] object-contain rounded-sm"
               onError={(e) => {
                 e.currentTarget.onerror = null;
-                e.currentTarget.src = 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1200&q=80';
+                e.currentTarget.src = '/images/photo-1519225421980-715cb0215aed.jpg';
               }}
             />
           </div>

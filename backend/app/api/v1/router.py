@@ -6,6 +6,7 @@ from fastapi import APIRouter
 
 from app.api.v1.endpoints import (
     auth,
+    chat,
     contact,
     gallery,
     services,
@@ -46,6 +47,7 @@ api_router.include_router(partners.router, prefix="/partners", tags=["Partners"]
 api_router.include_router(newsletter.router, prefix="/newsletter", tags=["Newsletter"])
 api_router.include_router(tools.router, prefix="/tools", tags=["Tools"])
 api_router.include_router(project_leads.router, prefix="/project-leads", tags=["Project Leads"])
+api_router.include_router(chat.router, prefix="/chat", tags=["Chat"])
 
 # --- Client (authenticated) ---
 api_router.include_router(

@@ -1,63 +1,20 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, X, Send, Loader2, Sparkles } from 'lucide-react';
-
-const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
-const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`;
-
-const SYSTEM_PROMPT = `Tu es Eva, l'assistante virtuelle d'Ever After Events, une agence de mariages et événements premium basée en France.
-
-Ton rôle :
-- Répondre aux questions sur les services, tarifs, processus et disponibilités
-- Guider les couples dans la préparation de leur mariage
-- Proposer des rendez-vous gratuits et sans engagement
-- Rester chaleureuse, élégante et professionnelle
-
-Informations clés :
-- Prestations : Coordination Complète (dès 8 000€), Organisation Partielle (dès 4 000€), Décoration & Ambiance, Événements d'Entreprise, Sur-Mesure
-- Premier RDV : gratuit et sans engagement, réservable sur /rendez-vous
-- Contact : contact@everafterevents.com | 01 23 45 67 89
-- Délai idéal : réserver 12 à 18 mois avant la date
-- Galerie disponible sur /galerie
-- FAQ sur /faq
-
-Réponds toujours en français, de façon concise (max 3 phrases), chaleureuse et élégante. Si tu ne sais pas, oriente vers le contact ou le RDV.`;
+import { chatAPI } from '../../services/api';
 
 const INITIAL_MESSAGES = [
   { id: '0', role: 'assistant', content: '✨ Bonjour ! Je suis Eva, l\'assistante virtuelle d\'Ever After Events. Comment puis-je vous aider à préparer votre mariage ?' },
 ];
 
-async function askGemini(history, userMessage) {
-  const contents = [
-    ...history.filter((m) => m.role !== 'system').map((m) => ({
-      role: m.role === 'assistant' ? 'model' : 'user',
-      parts: [{ text: m.content }],
-    })),
-    { role: 'user', parts: [{ text: userMessage }] },
-  ];
-
-  const res = await fetch(GEMINI_URL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      system_instruction: { parts: [{ text: SYSTEM_PROMPT }] },
-      contents,
-      generationConfig: { maxOutputTokens: 256, temperature: 0.7 },
-    }),
-  });
-
-  if (!res.ok) throw new Error(`Gemini error ${res.status}`);
-  const data = await res.json();
-  return data.candidates?.[0]?.content?.parts?.[0]?.text || 'Je suis désolée, je n\'ai pas pu traiter votre demande.';
-}
-
-// Fallback si pas de clé Gemini
+// Fallback si le backend n'est pas disponible
 const FAQ_FALLBACK = [
-  { keywords: ['prix', 'tarif', 'coût', 'budget', 'combien'], response: 'Nos prestations démarrent à 4 000€ pour une organisation partielle et 8 000€ pour une coordination complète. Chaque devis est personnalisé — souhaitez-vous un rendez-vous gratuit ?' },
-  { keywords: ['délai', 'quand', 'réserver'], response: 'Idéalement, réservez 12 à 18 mois avant la date. Mais nous pouvons aussi intervenir dans des délais plus courts !' },
+  { keywords: ['prix', 'tarif', 'coût', 'budget', 'combien'], response: 'Nos prestations démarrent à 1 200 000 FCFA pour une organisation partielle et 2 500 000 FCFA pour une coordination complète. Chaque devis est personnalisé — souhaitez-vous un rendez-vous gratuit ?' },
+  { keywords: ['délai', 'quand', 'réserver', 'quand'], response: 'Idéalement, réservez 12 à 18 mois avant la date. Mais nous pouvons aussi intervenir dans des délais plus courts !' },
   { keywords: ['rendez-vous', 'rdv', 'rencontrer'], response: 'Le premier rendez-vous est gratuit et sans engagement ! Réservez ici : /rendez-vous' },
-  { keywords: ['service', 'prestation', 'offre'], response: 'Nous proposons 5 prestations : Coordination Complète, Organisation Partielle, Décoration & Ambiance, Événements d\'Entreprise, et Sur-Mesure. Découvrez-les sur /services' },
-  { keywords: ['contact', 'téléphone', 'email'], response: 'Contactez-nous par email à contact@everafterevents.com, par téléphone au 01 23 45 67 89, ou via /contact' },
+  { keywords: ['service', 'prestation', 'offre', 'formule'], response: 'Nous proposons 8 prestations : Coordination Complète, Organisation Partielle, Décoration & Scénographie, Jour J, Conciergerie, Destination & Évasion, Animation Musicale, Design Graphique. Découvrez-les sur /services' },
+  { keywords: ['contact', 'téléphone', 'email', 'appeler'], response: 'Contactez-nous par email à contact@everafterevents.com, par téléphone au +229 01 23 45 67, ou via /contact' },
+  { keywords: ['cotonou', 'bénin', 'benin', 'localisation', 'où'], response: 'Nous sommes basés à Cotonou, Bénin, et intervenons dans toute la sous-région (Togo, Côte d\'Ivoire, Sénégal).' },
 ];
 
 function fallbackResponse(input) {
@@ -73,6 +30,7 @@ export default function Chatbot() {
   const [messages, setMessages] = useState(INITIAL_MESSAGES);
   const [input, setInput] = useState('');
   const [typing, setTyping] = useState(false);
+  const [backendActive, setBackendActive] = useState(true);
   const bottomRef = useRef(null);
 
   useEffect(() => { bottomRef.current?.scrollIntoView({ behavior: 'smooth' }); }, [messages]);
@@ -88,10 +46,20 @@ export default function Chatbot() {
 
     try {
       let response;
-      if (GEMINI_API_KEY) {
-        response = await askGemini(messages, text);
+      if (backendActive) {
+        try {
+          const history = messages.map((m) => ({ role: m.role, content: m.content }));
+          const res = await chatAPI.ask({ message: text, history });
+          response = res.data?.response;
+          if (!response) throw new Error('Réponse vide');
+        } catch {
+          // Fallback to local FAQ if backend fails
+          setBackendActive(false);
+          await new Promise((r) => setTimeout(r, 600));
+          response = fallbackResponse(text);
+        }
       } else {
-        await new Promise((r) => setTimeout(r, 800));
+        await new Promise((r) => setTimeout(r, 600));
         response = fallbackResponse(text);
       }
       setMessages((prev) => [...prev, { id: (Date.now() + 1).toString(), role: 'assistant', content: response }]);
@@ -138,8 +106,8 @@ export default function Chatbot() {
               <div className="flex-1">
                 <p className="text-sm font-medium">Eva — Assistante IA</p>
                 <p className="text-[10px] text-white/50 flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-sauge inline-block" />
-                  {GEMINI_API_KEY ? 'Propulsée par Gemini' : 'Mode hors-ligne'}
+                  <span className={`w-1.5 h-1.5 rounded-full ${backendActive ? 'bg-sauge' : 'bg-charbon/40'} inline-block`} />
+                  {backendActive ? 'Propulsée par Gemini' : 'Mode hors-ligne'}
                 </p>
               </div>
             </div>
@@ -185,7 +153,7 @@ export default function Chatbot() {
                 disabled={typing}
               />
               <button onClick={send} disabled={!input.trim() || typing} className="btn-primary !p-2 disabled:opacity-40">
-                <Send size={16} />
+                {typing ? <Loader2 size={16} className="animate-spin" /> : <Send size={16} />}
               </button>
             </div>
           </motion.div>

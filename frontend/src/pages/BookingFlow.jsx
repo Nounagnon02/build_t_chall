@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
-import { Sparkles, Image as ImageIcon, Settings, Calculator, Calendar, CheckCircle, Phone, ArrowRight, RotateCcw, Plus, Trash2, RefreshCw, Heart } from 'lucide-react';
+import { Sparkles, Image as ImageIcon, Settings, Calculator, Calendar, CheckCircle, Phone, ArrowRight, RotateCcw, Plus, Trash2, RefreshCw, Heart, Palette, Leaf, Star, Sun, Castle, TreePine, Umbrella, Building2, Music, Music3, Headphones, Music4, Shirt, Sunset, Footprints, Camera, Flower2, UtensilsCrossed, PartyPopper } from 'lucide-react';
 import { toast } from 'sonner';
 import PageTransition from '../components/common/PageTransition';
 import { QUIZ_STEPS, WEDDING_STYLES, BUDGET_REGIONS, SITE_NAME } from '../utils/constants';
@@ -37,6 +37,8 @@ function loadSaved() {
 // ==============================
 // Quiz Step
 // ==============================
+const ICON_MAP = { Palette, Leaf, Star, Sun, Castle, TreePine, Umbrella, Building2, Music, Music3, Headphones, Music4, Shirt, Heart, Sunset, Footprints, Camera, Flower2, UtensilsCrossed, PartyPopper };
+
 function QuizStep({ data, onUpdate, onSkip }) {
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState(data?.quiz?.answers ?? {});
@@ -93,7 +95,9 @@ function QuizStep({ data, onUpdate, onSkip }) {
                 onClick={() => select(opt.value)}
                 className="p-4 bg-white rounded-sm shadow-card hover:shadow-card-hover transition-shadow text-center group"
               >
-                <span className="text-3xl mb-2 block">{opt.emoji || '💍'}</span>
+                <span className="text-3xl mb-2 block">
+                  {(() => { const Icon = ICON_MAP[opt.icon]; return Icon ? <Icon size={32} className="mx-auto text-champagne" /> : '💍'; })()}
+                </span>
                 <span className="text-xs text-charbon/70 group-hover:text-champagne transition-colors">{opt.label}</span>
               </motion.button>
             ))}

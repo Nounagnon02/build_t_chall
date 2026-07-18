@@ -7,39 +7,39 @@ import { fadeInUp, staggerContainer } from '../../../utils/animations';
 const testimonials = [
   {
     id: 1,
-    names: 'Sophie & Thomas',
+    names: 'Awa & Idrissa',
     date: 'Juin 2026',
     venue: 'Château de Vaux-le-Vicomte',
     rating: 5,
     content: 'Ever After Events a transformé notre mariage en un conte de fées. Chaque détail était parfait, chaque moment magique. Claire et son équipe ont été extraordinaires du début à la fin.',
-    image: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=100&q=80',
+    image: '/images/photo-1522673607200-164d1b6ce486.jpg',
   },
   {
     id: 2,
-    names: 'Amina & Karim',
+    names: 'Lina & Malik',
     date: 'Mai 2026',
     venue: 'Domaine de la Reine',
     rating: 5,
     content: 'Notre mariage franco-marocain était un défi logistique. L\'équipe a su mêler nos deux cultures avec une élégance et un professionnalisme incroyables. Un grand merci !',
-    image: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=100&q=80',
+    image: '/images/photo-1529626455594-4ff0802cfb7e.jpg',
   },
   {
     id: 3,
-    names: 'Marie & Alexandre',
+    names: 'Mireille & Daniel',
     date: 'Avril 2026',
     venue: 'Château de Chambord',
     rating: 5,
     content: 'Une organisation irréprochable. Du premier rendez-vous au jour J, tout a été parfaitement orchestré. Nos invités en parlent encore ! Nous recommandons les yeux fermés.',
-    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&q=80',
+    image: '/images/photo-1580489944761-15a19d654956.jpg',
   },
   {
     id: 4,
-    names: 'Camille & Julien',
+    names: 'Nadia & Joël',
     date: 'Mars 2026',
     venue: 'Bastide en Provence',
     rating: 5,
     content: 'Le stress du mariage a complètement disparu grâce à leur accompagnement. L\'équipe est professionnelle, bienveillante et incroyablement talentueuse. Merci pour tout !',
-    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80',
+    image: '/images/photo-1534528741775-53994a69daeb.jpg',
   },
 ];
 
@@ -64,7 +64,7 @@ export default function TestimonialsSection() {
         <SectionTitle
           title="Témoignages"
           subtitle="La confiance de nos couples est notre plus belle récompense."
-          variant="asymmetric"
+          variant="display"
         />
 
         {/* Global rating */}

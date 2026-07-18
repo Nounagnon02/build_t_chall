@@ -5,7 +5,7 @@ import { Menu, X, User, ChevronDown } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { NAV_LINKS, SITE_NAME } from '../../utils/constants';
 
-function NavDropdown({ item, navScrolled }) {
+function NavDropdown({ item }) {
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
 
@@ -21,9 +21,7 @@ function NavDropdown({ item, navScrolled }) {
     <div ref={ref} className="relative" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
       <button
         onClick={() => setOpen(!open)}
-        className={`relative flex items-center gap-1 text-sm uppercase tracking-wider font-medium transition-colors duration-200 group ${
-          navScrolled ? 'text-charbon/70 hover:text-charbon' : 'text-white/80 hover:text-white'
-        }`}
+        className="relative flex items-center gap-1 text-sm uppercase tracking-wider font-medium transition-colors duration-200 group text-charbon/70 hover:text-charbon"
       >
         {item.label}
         <ChevronDown
@@ -62,52 +60,27 @@ function NavDropdown({ item, navScrolled }) {
 }
 
 export default function Header() {
-  const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileToolsOpen, setMobileToolsOpen] = useState(false);
   const location = useLocation();
   const { user, logout } = useAuth();
-  const isHome = location.pathname === '/';
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 80);
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   useEffect(() => {
     setMobileOpen(false);
     setMobileToolsOpen(false);
   }, [location]);
 
-  const navScrolled = scrolled || !isHome;
-  const logo = navScrolled ? (
-    <>
-      <span className="font-serif text-xl font-bold text-charbon">E</span>
-      <span className="text-champagne font-serif text-xl">A</span>
-      <span className="font-serif text-xl font-bold text-charbon">E</span>
-    </>
-  ) : (
-    <>
-      <span className="font-serif text-xl font-bold text-white">E</span>
-      <span className="text-champagne font-serif text-xl">A</span>
-      <span className="font-serif text-xl font-bold text-white">E</span>
-    </>
-  );
-
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        navScrolled ? 'glass shadow-sm' : 'bg-transparent'
-      }`}
-    >
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm border-b border-perle/70">
       <nav className="section-container flex items-center justify-between h-16 sm:h-20">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-0.5 group min-w-0" aria-label="Accueil">
-          {logo}
-          <span className={`ml-2 text-[10px] sm:text-xs uppercase tracking-widest hidden sm:block ${
-            navScrolled ? 'text-charbon/50' : 'text-white/70'
-          }`}>
+        <Link to="/" className="flex items-center gap-2 group min-w-0" aria-label="Accueil">
+          <img
+            src="/logo.jpeg"
+            alt="Ever After Events"
+            className="h-9 sm:h-11 w-auto max-w-[140px] object-contain shrink-0"
+          />
+          <span className="text-[10px] sm:text-xs uppercase tracking-widest hidden sm:block text-charbon/50">
             {SITE_NAME}
           </span>
         </Link>
@@ -116,14 +89,12 @@ export default function Header() {
         <div className="hidden lg:flex items-center gap-8">
           {NAV_LINKS.map((link) =>
             link.children ? (
-              <NavDropdown key={link.label} item={link} navScrolled={navScrolled} />
+              <NavDropdown key={link.label} item={link} navScrolled={true} />
             ) : (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`relative text-sm uppercase tracking-wider font-medium transition-colors duration-200 group ${
-                  navScrolled ? 'text-charbon/70 hover:text-charbon' : 'text-white/80 hover:text-white'
-                }`}
+                className="relative text-sm uppercase tracking-wider font-medium transition-colors duration-200 group text-charbon/70 hover:text-charbon"
               >
                 {link.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-champagne transition-all duration-300 group-hover:w-full" />
@@ -137,31 +108,25 @@ export default function Header() {
           {user ? (
             <Link
               to="/client"
-              className={`hidden sm:flex items-center gap-2 text-sm uppercase tracking-wider font-medium transition-colors ${
-                navScrolled ? 'text-charbon/70 hover:text-champagne' : 'text-white/80 hover:text-champagne'
-              }`}
+              className="hidden sm:flex items-center gap-2 text-sm uppercase tracking-wider font-medium transition-colors text-charbon/70 hover:text-champagne"
             >
               <User size={18} />
               <span>Espace Client</span>
             </Link>
           ) : (
             <Link
-              to="/login"
-              className={`hidden sm:flex items-center gap-2 text-sm uppercase tracking-wider font-medium transition-colors ${
-                navScrolled ? 'text-charbon/70 hover:text-champagne' : 'text-white/80 hover:text-champagne'
-              }`}
+              to="/rendez-vous"
+              className="hidden sm:flex items-center gap-2 rounded-full border border-champagne/40 bg-champagne/10 px-4 py-2 text-sm uppercase tracking-wider font-medium text-charbon transition-colors hover:bg-champagne/20"
             >
               <User size={18} />
-              <span>Connexion</span>
+              <span>Demander un devis</span>
             </Link>
           )}
 
           {/* Mobile toggle */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className={`lg:hidden p-2 -mr-1 rounded-full transition-colors ${
-              navScrolled ? 'text-charbon hover:bg-charbon/5' : 'text-white hover:bg-white/10'
-            }`}
+            className="lg:hidden p-2 -mr-1 rounded-full transition-colors text-charbon hover:bg-charbon/5"
             aria-label="Menu"
           >
             {mobileOpen ? <X size={24} /> : <Menu size={24} />}
@@ -236,8 +201,8 @@ export default function Header() {
                   </button>
                 </>
               ) : (
-                <Link to="/login" className="block py-2 text-champagne uppercase text-sm tracking-wider font-medium">
-                  Connexion
+                <Link to="/rendez-vous" className="block py-2 text-champagne uppercase text-sm tracking-wider font-medium">
+                  Demander un devis
                 </Link>
               )}
             </div>

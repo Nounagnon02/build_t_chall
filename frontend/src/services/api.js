@@ -138,6 +138,10 @@ export const blogAPI = {
   categories: () => api.get('/blog/categories'),
 };
 
+export const chatAPI = {
+  ask: (data) => api.post('/chat/ask', data),
+};
+
 export const faqAPI = {
   list: (params) => api.get('/faq', { params }),
   categories: () => api.get('/faq/categories'),

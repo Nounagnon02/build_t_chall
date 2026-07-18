@@ -25,54 +25,44 @@ export default function AboutSection() {
     >
       <div className="section-container">
         <SectionTitle
-          title="Notre Histoire"
-          subtitle="L'amour du beau, la passion du détail, l'exigence de la perfection."
-          variant="asymmetric"
+          title="Pourquoi nous faisons la différence"
+          subtitle="Parce que chaque mariage mérite une mise en scène élégante, fluide et parfaitement pensée."
+          variant="display"
         />
 
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-center">
-          {/* Image side — spans 7 columns, offset right */}
           <div className="lg:col-span-7 relative group">
-            <div className="aspect-[4/5] bg-perle rounded-sm overflow-hidden relative">
-              <div className="absolute inset-0 pattern-dots z-10 mix-blend-overlay pointer-events-none" aria-hidden="true" />
-              <div className="w-full h-full bg-gradient-to-br from-perle to-champagne/20 flex items-center justify-center">
-                <span className="font-script text-4xl text-champagne/50">Ever After</span>
-              </div>
-
-              {/* Glass badge overlay on hover */}
-              <div className="absolute bottom-4 left-4 right-4 glass p-4 rounded-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                <p className="text-xs text-charbon/60 italic">Fondée en 2010</p>
+            <div className="aspect-[4/5] rounded-sm overflow-hidden relative shadow-card">
+              <img
+                src="/images/photo-1519225421980-715cb0215aed.jpg"
+                alt="Décoration élégante d'un mariage premium"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-charbon/70 via-charbon/20 to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4 rounded-sm border border-white/20 bg-white/10 p-4 backdrop-blur-sm">
+                <p className="text-xs uppercase tracking-[0.3em] text-champagne">Luxe à chaque détail</p>
+                <p className="text-sm text-white/90 mt-1">Des espaces raffinés, des prestations pensées jusqu'au moindre détail.</p>
               </div>
             </div>
-            {/* Decorative frame overlaps image */}
             <div className="absolute -top-4 -right-4 w-24 h-24 border-2 border-champagne/30 rounded-sm" />
             <div className="absolute -bottom-6 -right-6 w-32 h-32 border-2 border-champagne/20 rounded-sm -z-10" />
           </div>
 
-          {/* Text side — narrower, pushed right */}
           <div className="lg:col-span-4 lg:col-start-9">
             <p className="font-elegant text-2xl italic text-charbon/60 mb-6 leading-relaxed">
-              "Chaque mariage raconte une histoire d'amour unique. Notre mission est de la mettre en scène avec élégance et authenticité."
+              "Chaque mariage raconte une histoire unique. Nous la mettons en scène avec élégance, maîtrise et émotion."
             </p>
 
             <div className="space-y-4 text-charbon/70 mb-10">
               <p>
-                Fondée par Claire Fontaine, passionnée d'événementiel depuis toujours,
-                Ever After Events est née d'une conviction : un mariage n'est pas une simple
-                réception, c'est l'un des plus beaux jours de votre vie.
+                Fondée sur une conviction forte : un mariage n'est pas seulement un événement, c'est une expérience à vivre avec fluidité, beauté et assurance.
               </p>
               <p>
-                Avec une équipe de talents réunissant des experts en organisation,
-                décoration, coordination et relations prestataires, nous faisons de
-                chaque mariage un moment unique.
-              </p>
-              <p>
-                Notre approche ? Une écoute attentive, une créativité sans limite,
-                et une exigence de perfection à chaque étape.
+                Notre équipe réunit créativité, organisation fine et réseau de prestataires premium pour créer un jour qui ressemble à votre histoire.
               </p>
             </div>
 
-            {/* Values */}
             <div className="grid grid-cols-3 gap-6 mb-10">
               {values.map((v) => (
                 <div key={v.title} className="text-center group cursor-default">
@@ -85,7 +75,6 @@ export default function AboutSection() {
               ))}
             </div>
 
-            {/* Stats */}
             <div className="grid grid-cols-3 gap-8 border-t border-perle pt-8">
               <div className="text-center">
                 <span ref={expRef} className="block font-serif text-3xl gold-text font-bold">{expCount}</span>

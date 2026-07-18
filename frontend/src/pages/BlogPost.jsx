@@ -53,7 +53,7 @@ export default function BlogPost() {
                   className="w-full h-full object-cover"
                   onError={(e) => {
                     e.currentTarget.onerror = null;
-                    e.currentTarget.src = 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1200&q=80';
+                    e.currentTarget.src = '/images/photo-1519225421980-715cb0215aed.jpg';
                   }}
                 />
               ) : (

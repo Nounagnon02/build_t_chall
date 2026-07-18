@@ -62,7 +62,7 @@ function ServiceDetail({ service }) {
         <div className="section-container max-w-4xl">
           <h1 className="font-serif text-4xl text-charbon mb-4">{service.title}</h1>
           <p className="text-charbon/60 leading-relaxed">{service.description}</p>
-          {service.price_from && <p className="text-champagne font-medium text-xl mt-4">À partir de {service.price_from}€</p>}
+          {service.price_from && <p className="text-champagne font-medium text-xl mt-4">À partir de {new Intl.NumberFormat('fr-FR').format(service.price_from)} FCFA</p>}
         </div>
       </section>
     </PageTransition>

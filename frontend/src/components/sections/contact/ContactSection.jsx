@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Clock } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, MessageCircle } from 'lucide-react';
 import SectionTitle from '../../common/SectionTitle';
 import ContactForm from '../../common/ContactForm';
 import { CONTACT_INFO } from '../../../utils/constants';
