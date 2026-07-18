@@ -11,10 +11,10 @@ const galleryPhotos = [
   { id: '1', title: 'Château de Vaux', style: 'romantique', src: '/images/photo-1519741497674-611481863552.webp', span: 'row-span-2' },
   { id: '2', title: 'Domaine Provençal', style: 'boheme', src: '/images/photo-1511795409834-ef04bbd61622.webp', span: '' },
   { id: '3', title: 'Réception Luxe', style: 'luxe', src: '/images/photo-1505236858219-8359eb29e329.webp', span: '' },
-  { id: '4', title: 'Mariage Bohème', style: 'boheme', src: '/images/photo-1602009786436-96b827675d32.webp', span: '' },
+  { id: '4', title: 'Arche florale', style: 'boheme', src: '/images/photo-1529636798458-92182e662485.webp', span: '' },
   { id: '5', title: 'Élégance Moderne', style: 'moderne', src: '/images/photo-1501281668745-f7f57925c3b4.webp', span: 'row-span-2' },
   { id: '6', title: 'Cérémonie Champêtre', style: 'champetre', src: '/images/photo-1519225421980-715cb0215aed.webp', span: '' },
-  { id: '7', title: 'Mariage Oriental', style: 'oriental', src: '/images/photo-1616805765352-beedbad46b2a.webp', span: '' },
+  { id: '7', title: 'Dîner au bord de l’eau', style: 'oriental', src: '/images/photo-1530023367847-a683933f4172.webp', span: '' },
   { id: '8', title: 'Luxueuse Soirée', style: 'luxe', src: '/images/photo-1519167758481-83f550bb49b3.webp', span: '' },
 ];
 
