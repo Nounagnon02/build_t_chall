@@ -44,7 +44,7 @@ export default function ContactSection() {
                   <MapPin size={18} className="text-champagne mt-1 shrink-0" />
                   <div>
                     <p className="text-sm text-white/80">{CONTACT_INFO.address}</p>
-                    <p className="text-xs text-white/40">Paris, France</p>
+                    <p className="text-xs text-white/40">Cotonou, Bénin</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -79,10 +79,10 @@ export default function ContactSection() {
 
             {/* Quick actions */}
             <div className="flex gap-3">
-              <a href={`https://wa.me/${CONTACT_INFO.whatsapp}`}
+              <a href={`https://wa.me/${CONTACT_INFO.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent('Bonjour Ever After Events, je souhaite parler de mon projet de mariage.')}`}
                 target="_blank" rel="noopener noreferrer"
-                className="flex-1 text-center py-3 border border-champagne text-champagne text-xs uppercase tracking-wider font-medium hover:bg-champagne/5 transition-colors">
-                WhatsApp
+                className="flex flex-1 items-center justify-center gap-2 bg-[#25D366] py-3 text-center text-xs font-medium uppercase tracking-wider text-white transition-colors hover:bg-[#1fb95a]">
+                <MessageCircle size={17} fill="currentColor" /> WhatsApp
               </a>
               <a href="/simulateur-budget"
                 className="flex-1 text-center py-3 bg-champagne text-white text-xs uppercase tracking-wider font-medium hover:bg-champagne-500 transition-colors">

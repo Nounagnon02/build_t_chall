@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, User, ChevronDown } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
-import { NAV_LINKS, SITE_NAME } from '../../utils/constants';
+import { NAV_LINKS } from '../../utils/constants';
 
 function NavDropdown({ item }) {
   const [open, setOpen] = useState(false);
@@ -74,15 +74,12 @@ export default function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm border-b border-perle/70">
       <nav className="section-container flex items-center justify-between h-16 sm:h-20">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 group min-w-0" aria-label="Accueil">
+        <Link to="/" className="flex items-center group min-w-0" aria-label="Accueil">
           <img
             src="/logo.jpeg"
             alt="Ever After Events"
             className="h-9 sm:h-11 w-auto max-w-[140px] object-contain shrink-0"
           />
-          <span className="text-[10px] sm:text-xs uppercase tracking-widest hidden sm:block text-charbon/50">
-            {SITE_NAME}
-          </span>
         </Link>
 
         {/* Desktop Nav */}

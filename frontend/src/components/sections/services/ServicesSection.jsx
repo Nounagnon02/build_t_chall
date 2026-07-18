@@ -1,117 +1,53 @@
-import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Sparkles, Settings, Palette, Building2, Star } from 'lucide-react';
-import SectionTitle from '../../common/SectionTitle';
-import ServiceCard from '../../common/ServiceCard';
-import useIntersectionObserver from '../../../hooks/useIntersectionObserver';
-import { staggerContainer } from '../../../utils/animations';
+import { ArrowUpRight, Camera, CarFront, Flower2, Music2, UtensilsCrossed } from 'lucide-react';
 
-const services = [
-  {
-    title: 'Direction de mariage de luxe',
-    subtitle: 'Nous orchestrons chaque moment avec raffinement, fluidité et précision.',
-    price: 'À partir de 5 900 000 FCFA',
-    icon: Star,
-    slug: 'coordination-complete',
-  },
-  {
-    title: 'Invitation digitale & expérience VIP',
-    subtitle: 'Des liens chic, élégants et personnalisés pour chaque invité.',
-    price: 'À partir de 1 200 000 FCFA',
-    icon: Sparkles,
-    slug: 'invitation-digitale',
-  },
-  {
-    title: 'Décoration, mobilier & ambiance',
-    subtitle: 'Verrerie, chariots, luminaires, fleurs et mise en scène de prestige.',
-    price: 'À partir de 1 900 000 FCFA',
-    icon: Palette,
-    slug: 'decoration',
-  },
-  {
-    title: 'Cérémonie, image & captation',
-    subtitle: 'Drone, lumière, musique et mise en valeur de chaque instant marquant.',
-    price: 'À partir de 3 500 000 FCFA',
-    icon: Building2,
-    slug: 'ceremonie-image',
-  },
-  {
-    title: 'Accompagnement sur mesure',
-    subtitle: 'Une offre entièrement pensée autour de votre vision, de votre lieu et de votre budget.',
-    price: 'Devis personnalisé',
-    icon: Settings,
-    slug: 'sur-mesure',
-  },
-];
-
-const luxuryHighlights = [
-  'Mobilier de prestige, verrerie et assiettes raffinées',
-  'Aménagement d’espaces avec chariots, détails de scène et lumière',
-  'Fleurs, décoration et ambiance sur mesure',
-  'Mise en valeur de la cérémonie avec drone, sonorisation et image',
-  'Invitation digitale élégante et expérience VIP pour chaque invité',
+const experiences = [
+  { icon: Flower2, title: 'Décors & art floral', text: 'Scénographie, fleurs, lumière et installations qui transforment entièrement le lieu.' },
+  { icon: UtensilsCrossed, title: 'Art de recevoir', text: 'Mobilier, linge, porcelaine, verrerie et gastronomie réunis dans une même vision.' },
+  { icon: CarFront, title: 'Arrivées remarquables', text: 'Voitures de prestige, véhicules de collection, calèches et transferts VIP.' },
+  { icon: Camera, title: 'Image & cinéma', text: 'Photographie, film, drone et retransmission pour ne laisser échapper aucune émotion.' },
+  { icon: Music2, title: 'Scène & célébration', text: 'Artistes, musiciens, DJ et performances coordonnés selon vos envies et les disponibilités.' },
 ];
 
 export default function ServicesSection() {
-  const { ref, inView } = useIntersectionObserver({ threshold: 0.1, triggerOnce: true });
-
   return (
-    <section id="services" className="section-padding bg-ivory">
+    <section id="experiences" className="bg-white py-20 sm:py-24 lg:py-32">
       <div className="section-container">
-        <SectionTitle
-          title="Nos services, pensée luxe"
-          subtitle="Des prestations premium qui donnent de la valeur à chaque moment, de l'organisation à la mise en scène."
-          variant="display"
-        />
+        <div className="mb-12 max-w-4xl md:mb-16">
+          <p className="eyebrow">Ce que nous rendons possible</p>
+          <h2 className="editorial-title">Votre mariage ne devrait ressembler à aucun autre.</h2>
+          <p className="editorial-lead">Nous ne proposons pas une simple coordination. Nous imaginons un monde, puis nous réunissons les talents, les objets et la précision nécessaires pour le rendre réel.</p>
+        </div>
 
-        <motion.div
-          ref={ref}
-          variants={staggerContainer}
-          initial="hidden"
-          animate={inView ? 'visible' : 'hidden'}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
-        >
-          {services.map((service, index) => (
-            <div
-              key={service.slug}
-              className={index === 0 ? 'md:col-span-2 lg:col-span-2' : index === 4 ? 'md:row-span-2 lg:row-span-2 flex flex-col justify-center bg-champagne/5 border border-champagne/20 rounded-sm' : ''}
-            >
-              {index === 4 ? (
-                <div className="p-8 h-full flex flex-col justify-center">
-                  <ServiceCard service={service} />
+        <div className="grid overflow-hidden border border-perle/80 lg:grid-cols-[1.2fr_0.8fr]">
+          <div className="relative min-h-[470px] lg:min-h-[680px]">
+            <img src="/images/editorial/luxury-tablescape.webp" alt="Table de réception avec roses, bougies et verrerie" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-t from-charbon/75 via-transparent to-transparent" />
+            <div className="absolute bottom-0 left-0 max-w-xl p-7 text-white sm:p-10">
+              <p className="mb-3 text-[10px] uppercase tracking-[0.3em] text-champagne-200">La beauté vit dans les détails</p>
+              <h3 className="font-display text-3xl leading-tight sm:text-5xl">Une table dont vos invités se souviendront.</h3>
+            </div>
+          </div>
+
+          <div className="divide-y divide-perle/80 bg-ivory">
+            {experiences.map(({ icon: Icon, title, text }, index) => (
+              <div key={title} className="group grid grid-cols-[42px_1fr] gap-4 p-6 transition-colors hover:bg-white sm:p-7">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full border border-champagne/40 text-champagne">
+                  <Icon size={18} strokeWidth={1.5} />
                 </div>
-              ) : (
-                <ServiceCard service={service} />
-              )}
-            </div>
-          ))}
-        </motion.div>
-
-        <div className="mt-12 rounded-sm border border-perle/70 bg-white p-6 md:p-8 shadow-card">
-          <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-8 items-center">
-            <div>
-              <p className="text-[10px] uppercase tracking-[0.35em] text-champagne mb-3">Ce que nous pouvons créer</p>
-              <h3 className="font-serif text-2xl text-charbon mb-4">Une expérience de luxe, du décor à l’image de votre cérémonie</h3>
-              <p className="text-sm leading-relaxed text-charbon/70">
-                Nous ne nous contentons pas d’organiser : nous sculptons une ambiance, mettons en valeur chaque instant et proposons des détails qui font toute la différence.
-              </p>
-            </div>
-            <div className="rounded-sm bg-ivory border border-perle/60 p-5">
-              <ul className="space-y-3 text-sm text-charbon/70">
-                {luxuryHighlights.map((item) => (
-                  <li key={item} className="flex items-start gap-2">
-                    <span className="mt-1 h-2.5 w-2.5 rounded-full bg-champagne shrink-0" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+                <div>
+                  <span className="mb-1 block text-[9px] uppercase tracking-[0.3em] text-charbon/35">0{index + 1}</span>
+                  <h3 className="font-display text-xl text-charbon">{title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-charbon/60">{text}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
-        <div className="text-center mt-8">
-          <Link to="/simulateur-budget" className="btn-primary inline-flex items-center gap-2">
-            Obtenir un devis personnalisé <ArrowRight size={16} />
+        <div className="mt-8 flex justify-end">
+          <Link to="/services" className="inline-flex items-center gap-2 border-b border-charbon pb-1 text-xs font-medium uppercase tracking-[0.22em] text-charbon">
+            Explorer tout notre savoir-faire <ArrowUpRight size={16} />
           </Link>
         </div>
       </div>

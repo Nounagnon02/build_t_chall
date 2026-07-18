@@ -245,6 +245,18 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
+
+  .eyebrow {
+    @apply mb-4 text-[10px] font-medium uppercase tracking-[0.34em] text-champagne;
+  }
+
+  .editorial-title {
+    @apply max-w-4xl font-display text-[clamp(2.4rem,5vw,5.2rem)] font-medium leading-[0.98] tracking-[-0.025em] text-charbon;
+  }
+
+  .editorial-lead {
+    @apply mt-6 max-w-2xl font-elegant text-lg leading-relaxed text-charbon/65;
+  }
 }
 
 /* ------------------------------------------------------------------ */
